@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User-Agent Switcher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="section-title">Choose User-Agent</div>
+      <!-- General Options Section -->
+      <div class="category-section">
+        <div class="category-title">General Options</div>
+        <div class="ua-grid">
+          <div class="ua-item" data-ua="default">
+            <div class="ua-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#2c3e50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="10"/>
+  <line x1="2" y1="12" x2="22" y2="12"/>
+  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+</svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">System Default</div>
+              <div class="ua-platform">Original Browser</div>
+            </div>
+          </div>
+          <div class="ua-item custom-ua-item" data-ua="custom">
+            <div class="ua-icon">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="12" cy="12" r="3" />
+  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+</svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Custom</div>
+              <div class="ua-platform">User-Specified</div>
+            </div>
+          </div>
+        </div>
+        <!-- Custom UA Input Form -->
+        <div class="custom-ua-wrapper hidden" id="custom-ua-section">
+          <label for="custom-ua-input" class="input-label">Enter Custom User-Agent String</label>
+          <textarea id="custom-ua-input" placeholder="Mozilla/5.0 (Windows NT 10.0; Win64; x64) ..."></textarea>
+          <div class="custom-ua-actions">
+            <button id="save-custom-btn" class="primary-btn">Apply Custom UA</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Windows Section -->
+      <div class="category-section">
+        <div class="category-title">Windows</div>
+        <div class="ua-grid">
+          <div class="ua-item" data-ua="chrome_win">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 190 190" width="20" height="20"><linearGradient id="chrome-id-d" x1="28.3" x2="80.8" y1="75" y2="44.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a52714" stop-opacity=".6"/><stop offset=".7" stop-color="#a52714" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-f" x1="109.9" x2="51.5" y1="164.5" y2="130.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#055524" stop-opacity=".4"/><stop offset=".3" stop-color="#055524" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-h" x1="121.9" x2="136.6" y1="49.8" y2="114.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ea6100" stop-opacity=".3"/><stop offset=".7" stop-color="#ea6100" stop-opacity="0"/></linearGradient><radialGradient id="chrome-id-a" cx="91.2" cy="55" r="84.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3e2723" stop-opacity=".2"/><stop offset="1" stop-color="#3e2723" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-i" cx="20.9" cy="47.5" r="78" xlink:href="#chrome-id-a"/><radialGradient id="chrome-id-j" cx="94.8" cy="95.1" r="87.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#263238" stop-opacity=".2"/><stop offset="1" stop-color="#263238" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-k" cx="33.3" cy="31" r="176.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><clipPath id="chrome-id-b"><circle cx="95" cy="95" r="88"/></clipPath><g clip-path="url(#chrome-id-b)"><use fill="#db4437" xlink:href="#chrome-id-c"/><use fill="url(#chrome-id-d)" xlink:href="#chrome-id-c"/><use fill="#0f9d58" xlink:href="#chrome-id-e"/><use fill="url(#chrome-id-f)" xlink:href="#chrome-id-e"/><use fill="#ffcd40" xlink:href="#chrome-id-g"/><use fill="url(#chrome-id-h)" xlink:href="#chrome-id-g"/><g fill-opacity=".1"><path fill="#3e2723" d="M61.3 114.7L21 47.4l39 67.8z"/><path fill="#263238" d="M128.8 116.3l-.8-.4-37.3 67 38.3-67z"/></g><path id="chrome-id-e" d="M7 183h83.8l39-39v-29H60.2L7 23.5z"/><path id="chrome-id-g" d="M95 55l34.6 60L91 183h92V55z"/><path id="chrome-id-c" d="M21 7v108h39.4L95 55h88V7z"/><path fill="url(#chrome-id-a)" d="M95 55v21l78.4-21z"/><path fill="url(#chrome-id-i)" d="M21 47.5l57.2 57.2L60.4 115z"/><path fill="url(#chrome-id-j)" d="M90.8 183l21-78.3 17.8 10.3z"/><circle cx="95" cy="95" r="40" fill="#f1f1f1"/><circle cx="95" cy="95" r="32" fill="#4285f4"/><circle cx="95" cy="95" r="88" fill="url(#chrome-id-k)"/><g fill="#3e2723" fill-opacity=".1"><path fill="#fff" d="M129.6 115a40 40 0 01-69.2 0L7 24.5 60.4 116a40 40 0 0069.2 0z"/><path d="M96 55h-.5a40 40 0 110 80h.5c22 0 40-18 40-40s-18-40-40-40zm-1 127a88 88 0 0088-87.5v.5A88 88 0 017 95v-.5A88 88 0 0095 182z"/><g fill-opacity=".2"><path fill="#fff" d="M130 116.3a39.3 39.3 0 003.4-32 38 38 0 01-3.8 30.7L92 183l38.2-66.5zM95 8a88 88 0 0188 87.5V95A88 88 0 007 95v.5A88 88 0 0195 8z"/><path d="M95 54c-22 0-40 18-40 40v1c0-22 18-40 40-40h88v-1z"/></g></g></g></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Chrome</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="firefox_win">
+            <div class="ua-icon">
+              <svg id="firefox-id-Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"   viewBox="0 0 953.37 984" width="20" height="20">
+  <defs>
+    <radialGradient id="firefox-id-radial-gradient" cx="-14569.52" cy="9284.3" fx="-14598.28277817514" r="450.88" gradientTransform="matrix(0.76, 0.03, 0.05, -1.12, 11545.85, 11139.76)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#ffea00"/>
+      <stop offset="0.17" stop-color="#ffde00"/>
+      <stop offset="0.28" stop-color="#ffbf00"/>
+      <stop offset="0.43" stop-color="#ff8e00"/>
+      <stop offset="0.77" stop-color="#ff272d"/>
+      <stop offset="0.87" stop-color="#e0255a"/>
+      <stop offset="0.95" stop-color="#cc2477"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-2" cx="-7540.92" cy="8862.36" r="791.23" gradientTransform="matrix(1.23, 0, 0, -1.23, 9900.64, 11054.07)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00ccda"/>
+      <stop offset="0.22" stop-color="#0083ff"/>
+      <stop offset="0.26" stop-color="#007af9"/>
+      <stop offset="0.33" stop-color="#0060e8"/>
+      <stop offset="0.33" stop-color="#005fe7"/>
+      <stop offset="0.44" stop-color="#2639ad"/>
+      <stop offset="0.52" stop-color="#401e84"/>
+      <stop offset="0.57" stop-color="#4a1475"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient" x1="540.64" y1="254.8" x2="349.2" y2="881.03" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000f43" stop-opacity="0.4"/>
+      <stop offset="0.48" stop-color="#001962" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#002079" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="firefox-id-radial-gradient-3" cx="-8291.37" cy="7446.88" r="266.89" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffea00"/>
+      <stop offset="0.5" stop-color="#ff272d"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-4" cx="-8315.51" cy="7702.79" r="445.68" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe900"/>
+      <stop offset="0.16" stop-color="#ffaf0e"/>
+      <stop offset="0.32" stop-color="#ff7a1b"/>
+      <stop offset="0.47" stop-color="#ff4e26"/>
+      <stop offset="0.62" stop-color="#ff2c2e"/>
+      <stop offset="0.76" stop-color="#ff1434"/>
+      <stop offset="0.89" stop-color="#ff0538"/>
+      <stop offset="1" stop-color="#ff0039"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-5" cx="-8252.47" cy="7289.65" r="408.96" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff272d"/>
+      <stop offset="0.5" stop-color="#c42482"/>
+      <stop offset="0.99" stop-color="#620700"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-6" cx="715.19" cy="589.96" fx="743.1665035759816" fy="576.1323859732546" r="782.18" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.16" stop-color="#ffea00"/>
+      <stop offset="0.23" stop-color="#ffde00"/>
+      <stop offset="0.37" stop-color="#ffbf00"/>
+      <stop offset="0.54" stop-color="#ff8e00"/>
+      <stop offset="0.76" stop-color="#ff272d"/>
+      <stop offset="0.8" stop-color="#f92433"/>
+      <stop offset="0.84" stop-color="#e91c45"/>
+      <stop offset="0.89" stop-color="#cf0e62"/>
+      <stop offset="0.94" stop-color="#b5007f"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-7" cx="670.34" cy="952.71" r="891.45" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.28" stop-color="#ffea00"/>
+      <stop offset="0.4" stop-color="#fd0"/>
+      <stop offset="0.63" stop-color="#ffba00"/>
+      <stop offset="0.86" stop-color="#ff9100"/>
+      <stop offset="0.93" stop-color="#ff6711"/>
+      <stop offset="0.99" stop-color="#ff4a1d"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient-2" x1="-8977.08" y1="7615.91" x2="-8670.05" y2="7694.17" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482" stop-opacity="0.5"/>
+      <stop offset="0.47" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="0.49" stop-color="#ff2c2c" stop-opacity="0.51"/>
+      <stop offset="0.68" stop-color="#ff7a1a" stop-opacity="0.72"/>
+      <stop offset="0.83" stop-color="#ffb20d" stop-opacity="0.87"/>
+      <stop offset="0.94" stop-color="#ffd605" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#ffe302"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-3" x1="188.29" y1="2056.08" x2="133.72" y2="2195.93" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, -247, 2281.31)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#891551" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-4" x1="-39.01" y1="252.89" x2="55.1" y2="146.01" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.01" stop-color="#891551" stop-opacity="0.5"/>
+      <stop offset="0.48" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff272d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-5" x1="141.88" y1="68.53" x2="141.95" y2="143.31" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482"/>
+      <stop offset="0.08" stop-color="#c42482" stop-opacity="0.81"/>
+      <stop offset="0.21" stop-color="#c42482" stop-opacity="0.57"/>
+      <stop offset="0.33" stop-color="#c42482" stop-opacity="0.36"/>
+      <stop offset="0.45" stop-color="#c42482" stop-opacity="0.2"/>
+      <stop offset="0.56" stop-color="#c42482" stop-opacity="0.09"/>
+      <stop offset="0.67" stop-color="#c42482" stop-opacity="0.02"/>
+      <stop offset="0.77" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-6" x1="620.52" y1="947.88" x2="926.18" y2="264.39" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff14f"/>
+      <stop offset="0.27" stop-color="#ffee4c"/>
+      <stop offset="0.45" stop-color="#ffe643"/>
+      <stop offset="0.61" stop-color="#ffd834"/>
+      <stop offset="0.76" stop-color="#ffc41e"/>
+      <stop offset="0.89" stop-color="#ffab02"/>
+      <stop offset="0.9" stop-color="#ffa900"/>
+      <stop offset="0.95" stop-color="#ffa000"/>
+      <stop offset="1" stop-color="#ff9100"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-7" x1="680.88" y1="554.79" x2="536.1" y2="166.04" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff8e00"/>
+      <stop offset="0.04" stop-color="#ff8e00" stop-opacity="0.86"/>
+      <stop offset="0.08" stop-color="#ff8e00" stop-opacity="0.73"/>
+      <stop offset="0.13" stop-color="#ff8e00" stop-opacity="0.63"/>
+      <stop offset="0.18" stop-color="#ff8e00" stop-opacity="0.56"/>
+      <stop offset="0.23" stop-color="#ff8e00" stop-opacity="0.51"/>
+      <stop offset="0.28" stop-color="#ff8e00" stop-opacity="0.5"/>
+      <stop offset="0.39" stop-color="#ff8e00" stop-opacity="0.48"/>
+      <stop offset="0.52" stop-color="#ff8e00" stop-opacity="0.42"/>
+      <stop offset="0.68" stop-color="#ff8e00" stop-opacity="0.31"/>
+      <stop offset="0.84" stop-color="#ff8e00" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#ff8e00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <title>Firefox_Logo,_2017_2</title>
+  <g id="firefox-id-Layer_2" data-name="Layer 2">
+    <g id="firefox-id-Firefox_-_Large" data-name="Firefox - Large">
+      <path d="M770.28,91.56c-24,27.88-35.1,90.64-10.82,154.26s61.5,49.8,84.7,114.67c30.62,85.6,16.37,200.59,16.37,200.59s36.81,106.61,62.47-6.63C979.79,341.74,770.28,143.94,770.28,91.56Z" style="fill: url(#firefox-id-radial-gradient)"/>
+      <path id="firefox-id-_Path_" data-name=" Path " d="M478.07,974.64c245.24,0,443.9-199.74,443.9-446s-198.66-446-443.66-446S34.65,282.32,34.65,528.61C34.18,775.14,233.07,974.64,478.07,974.64Z" style="fill: url(#firefox-id-radial-gradient-2)"/>
+      <path d="M810.67,803.64a246.89,246.89,0,0,1-30.12,18.18,704,704,0,0,0,38.3-63c9.46-10.47,18.13-20.65,25.19-31.65,3.44-5.41,7.31-12.08,11.42-19.82,24.92-44.9,52.4-117.56,53.18-192.2v-5.66a257.6,257.6,0,0,0-5.71-55.75c.2,1.43.38,2.86.56,4.29-.22-1.1-.41-2.21-.64-3.31.37,2,.66,4,1,6,5.09,43.22,1.47,85.37-16.68,116.45-.29.45-.58.88-.87,1.32,9.41-47.23,12.56-99.39,2.09-151.6,0,0-4.19-25.38-35.38-102.44-18-44.35-49.83-80.72-78-107.21-24.69-30.55-47.11-51-59.47-64.06C689.72,126,678.9,105.61,674.45,92.31c-3.85-1.93-53.14-49.81-57-51.63-21.51,33.35-89.16,137.67-57,235.15,14.58,44.17,51.47,90,90.07,115.74,1.69,1.94,23,25,33.09,77.16,10.45,53.85,5,95.86-16.54,158-25.29,54.51-90.07,108.39-150.72,113.9-129.67,11.78-177.15-65.11-177.15-65.11C385.49,694,436.72,690.17,467.87,671c31.4-19.43,50.39-33.83,65.81-28.15C548.86,648.43,561,632,550.1,615a78.5,78.5,0,0,0-79.4-34.57c-31.43,5.11-60.23,30-101.41,5.89a85.52,85.52,0,0,1-7.73-5.06c-2.71-1.79,8.83,2.72,6.13.69-8-4.35-22.2-13.84-25.88-17.22-.61-.56,6.22,2.18,5.61,1.62-38.51-31.71-33.7-53.13-32.49-66.57,1-10.75,8-24.52,19.75-30.11,5.69,3.11,9.24,5.48,9.24,5.48s-2.43-5-3.74-7.58c.46-.2.9-.15,1.36-.34,4.66,2.25,15,8.1,20.41,11.67,7.07,5,9.33,9.44,9.33,9.44s1.86-1,.48-5.37c-.5-1.78-2.65-7.45-9.65-13.17h.44A81.2,81.2,0,0,1,374.42,478c2-7.18,5.53-14.68,4.75-28.09-.48-9.43-.26-11.87-1.92-15.51-1.49-3.13.83-4.35,3.42-1.1a32.83,32.83,0,0,0-2.21-7.4v-.24c3.23-11.24,68.25-40.46,73-43.88A67.36,67.36,0,0,0,470.59,361c3.62-5.76,6.34-13.85,7-26.11.36-8.84-3.76-14.73-69.51-21.62-18-1.77-28.53-14.8-34.53-26.82-1.09-2.59-2.21-4.94-3.33-7.28a58,58,0,0,1-2.56-8.43c10.75-30.87,28.81-57,55.37-76.7,1.45-1.32-5.78.34-4.34-1,1.69-1.54,12.71-6,14.79-7,2.54-1.2-10.88-6.9-22.73-5.51-12.07,1.36-14.63,2.8-21.07,5.53,2.67-2.66,11.17-6.15,9.18-6.13-13,2-29.18,9.56-43,18.12a10.73,10.73,0,0,1,.83-4.35c-6.44,2.73-22.26,13.79-26.87,23.14a44.33,44.33,0,0,0,.27-5.4,84.48,84.48,0,0,0-13.19,13.82l-.24.22c-37.36-15-70.23-16-98.05-9.28-6.09-6.11-9.06-1.64-22.91-32.07-.94-1.83.72,1.81,0,0-2.28-5.9,1.39,7.87,0,0-23.28,18.37-53.92,39.19-68.63,53.89-.18.59,17.16-4.9,0,0-6,1.72-5.6,5.28-6.51,37.5-.22,2.44,0,5.18-.22,7.38-11.75,15-19.75,27.64-22.78,34.21-15.19,26.18-31.93,67-48.15,131.55A334.36,334.36,0,0,1,75.2,398.36C61.71,432.63,48.67,486.44,46.07,569.3A483.61,483.61,0,0,1,58.6,518.64,473,473,0,0,0,93.33,719.71c9.33,22.82,24.76,57.46,51,95.4C226.9,902,343.31,956,472.21,956,606.79,956,727.64,897.13,810.67,803.64Z" style="fill: url(#firefox-id-linear-gradient)"/>
+      <path d="M711.1,866.71c162.87-18.86,235-186.7,142.38-190C769.85,674,634,875.61,711.1,866.71Z" style="fill: url(#firefox-id-radial-gradient-3)"/>
+      <path d="M865.21,642.42C977.26,577.21,948,436.34,948,436.34s-43.25,50.24-72.62,130.32C846.4,646,797.84,681.81,865.21,642.42Z" style="fill: url(#firefox-id-radial-gradient-4)"/>
+      <path d="M509.47,950.06C665.7,999.91,800,876.84,717.21,835.74,642,798.68,435.32,926.49,509.47,950.06Z" style="fill: url(#firefox-id-radial-gradient-5)"/>
+      <path d="M876.85,702.23c3.8-5.36,8.94-22.53,13.48-30.21,27.58-44.52,27.78-80,27.78-80.84,16.66-83.22,15.15-117.2,4.9-180-8.25-50.6-44.32-123.09-75.57-158-32.2-36-9.51-24.25-40.69-50.52-27.33-30.29-53.82-60.29-68.25-72.36C634.22,43.09,636.57,24.58,638.58,21.42c-.34.37-.84.92-1.47,1.64C635.87,18.14,635,14,635,14s-57,57-69,152c-7.83,62,15.38,126.68,49,168a381.37,381.37,0,0,0,59,58h0c25.4,36.48,39.38,81.49,39.38,129.91,0,121.24-98.34,219.53-219.65,219.53a220.45,220.45,0,0,1-49.13-5.52c-57.24-10.92-90.3-39.8-106.78-59.41-9.45-11.23-13.46-19.42-13.46-19.42,51.28,18.37,108,14.53,142.47-4.52,34.75-19.26,55.77-33.55,72.84-27.92,16.82,5.61,30.21-10.67,18.2-27.54-11.77-16.85-42.4-41-87.88-34.29-34.79,5.07-66.66,29.76-112.24,5.84a96.32,96.32,0,0,1-8.55-5c-3-1.77,9.77,2.69,6.79.68-8.87-4.32-24.57-13.73-28.64-17.07-.68-.56,6.88,2.16,6.2,1.6-42.62-31.45-37.3-52.69-36-66,1.07-10.66,8.81-24.32,21.86-29.86,6.3,3.08,10.23,5.43,10.23,5.43s-2.69-4.92-4.14-7.51c.51-.19,1-.15,1.5-.34,5.16,2.23,16.58,8,22.59,11.57,7.83,5,10.32,9.36,10.32,9.36s2.06-1,.54-5.33c-.56-1.77-2.93-7.39-10.68-13.07h.48a90.85,90.85,0,0,1,13.13,8.17c2.19-7.12,6.12-14.56,5.25-27.86-.53-9.35-.28-11.78-2.12-15.39-1.65-3.1.92-4.31,3.78-1.09a30,30,0,0,0-2.44-7.34v-.24c3.57-11.14,75.53-40.12,80.77-43.51a70.31,70.31,0,0,0,21.17-20.63c4-5.72,7-13.73,7.75-25.89.25-5.48-1.44-9.82-20.5-14-11.44-2.49-29.14-4.91-56.43-7.47-19.9-1.76-31.58-14.68-38.21-26.6-1.21-2.57-2.45-4.9-3.68-7.22a53.11,53.11,0,0,1-2.83-8.36,158.47,158.47,0,0,1,61.28-76.06c1.6-1.31-6.4.33-4.8-1,1.87-1.52,14.06-5.93,16.37-6.92,2.81-1.19-12-6.84-25.16-5.47-13.36,1.35-16.19,2.78-23.32,5.49,3-2.64,12.37-6.1,10.16-6.08-14.4,2-32.3,9.48-47.6,18a9.68,9.68,0,0,1,.92-4.31c-7.13,2.71-24.64,13.67-29.73,23a39.49,39.49,0,0,0,.29-5.35,88.68,88.68,0,0,0-14.6,13.7l-.27.22C258.14,196,221.75,195,191,201.72c-6.74-6.06-17.57-15.23-32.89-45.4-1-1.82-1.6,3.75-2.4,2-6-13.81-9.55-36.44-9-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.87-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.37,12.62-1.38,4-3.32,6.27-4.56,11.29l-.29.46c-.1-1.48.37-6.08,0-5.14A236.1,236.1,0,0,0,95.34,186c-5.49,18-11.88,42.61-12.89,74.57-.24,2.42,0,5.14-.25,7.32-13,14.83-21.86,27.39-25.2,33.91-16.81,26-35.33,66.44-53.29,130.46a319.14,319.14,0,0,1,28.54-50C17.32,416.25,2.89,469.62,0,551.8a438.52,438.52,0,0,1,13.87-50.24C11.29,556.36,17.68,624.3,52.32,701c20.57,45,67.92,136.6,183.62,208h0s39.36,29.3,107,51.26c5,1.81,10.06,3.6,15.23,5.33q-2.43-1-4.71-2A484.88,484.88,0,0,0,492.27,984c175.18.15,226.85-70.2,226.85-70.2l-.51.38q3.71-3.49,7.14-7.26c-27.64,26.08-90.75,27.84-114.3,26,40.22-11.81,66.69-21.81,118.17-41.52q9-3.36,18.48-7.64l2-.94c1.25-.58,2.49-1.13,3.75-1.74a349.21,349.21,0,0,0,70.26-44c51.7-41.3,63-81.56,68.83-108.1-.82,2.54-3.37,8.47-5.17,12.32-13.31,28.48-42.84,46-74.91,61a689,689,0,0,0,42.38-62.44C865.77,729.39,869,713.15,876.85,702.23Z" style="fill: url(#firefox-id-radial-gradient-6)"/>
+      <path d="M813.92,801c21.08-23.24,40-49.82,54.35-80,36.9-77.58,94-206.58,49-341.31C881.77,273.22,833,215,771.11,158.12,670.56,65.76,642.48,24.52,642.48,0c0,0-116.09,129.41-65.74,264.38s153.46,130,221.68,270.87c80.27,165.74-65,346.61-185,397.24,7.35-1.63,267-60.38,280.61-208.88C893.68,726.34,887.83,767.41,813.92,801Z" style="fill: url(#firefox-id-radial-gradient-7)"/>
+      <path d="M477.59,319.37c.39-8.77-4.16-14.66-76.68-21.46-29.84-2.76-41.26-30.33-44.75-41.94-10.61,27.56-15,56.49-12.64,91.48,1.61,22.92,17,47.52,24.37,62,0,0,1.64-2.13,2.39-2.91,13.86-14.43,71.94-36.42,77.39-39.54C453.69,363.16,476.58,346.44,477.59,319.37Z" style="fill: url(#firefox-id-linear-gradient-2)"/>
+      <path d="M158.31,156.47c-1-1.82-1.6,3.75-2.4,2-6-13.81-9.58-36.2-8.72-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.86-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.35,12.38-1.65,4.24-3.35,6.52-4.61,11.77-.39,1.43.39-6.32.05-5.38C84.72,201.68,80.19,271,82.69,268,133.17,214.14,191,201.36,191,201.36c-6.15-4.53-19.53-17.63-32.7-44.89Z" style="fill: url(#firefox-id-linear-gradient-3)"/>
+      <path d="M349.84,720.1c-69.72-29.77-149-71.75-146-167.14C207.92,427.35,321,452.18,321,452.18c-4.27,1-15.68,9.16-19.72,17.82-4.27,10.83-12.07,35.28,11.55,60.9,37.09,40.19-76.2,95.36,98.66,199.57,4.41,2.4-41-1.43-61.64-10.36Z" style="fill: url(#firefox-id-linear-gradient-4)"/>
+      <path d="M325.07,657.5c49.44,17.21,107,14.19,141.52-4.86,23.09-12.85,52.7-33.43,70.92-28.35-15.78-6.24-27.73-9.15-42.1-9.86-2.45,0-5.38,0-8-.32a136.24,136.24,0,0,0-15.76.86c-8.9.82-18.77,6.43-27.74,5.53-.48,0,8.7-3.77,8-3.61-4.75,1-9.92,1.21-15.37,1.88-3.47.39-6.45.82-9.89,1-103,8.73-190-55.81-190-55.81-7.41,25,33.17,74.3,88.52,93.57Z" style="fill: url(#firefox-id-linear-gradient-5)"/>
+      <path d="M813.74,801.65c104.16-102.27,156.86-226.58,134.58-366,0,0,8.9,71.5-24.85,144.63,16.21-71.39,18.1-160.11-25-252C841,205.64,746.45,141.11,710.35,114.19,655.66,73.4,633,31.87,632.57,23.3c-16.34,33.48-65.77,148.2-5.31,247,56.64,92.56,145.86,120,208.33,205C950.67,631.67,813.74,801.65,813.74,801.65Z" style="fill: url(#firefox-id-linear-gradient-6)"/>
+      <path d="M798.81,535.55C762.41,460.35,717,427.55,674,392c5,7,6.23,9.47,9,14,37.83,40.32,93.61,138.66,53.11,262.11C659.88,900.48,355,791.06,323,760.32,335.93,894.81,561,959.16,707.6,872,791,793,858.47,658.79,798.81,535.55Z" style="fill: url(#firefox-id-linear-gradient-7)"/>
+    </g>
+  </g>
+</svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Firefox</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="brave_win">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2770 2770" width="20" height="20"><linearGradient id="brave-id-a" y1="51%" y2="51%"><stop offset=".4" stop-color="#f50"/><stop offset=".6" stop-color="#ff2000"/></linearGradient><linearGradient id="brave-id-b" x1="2%" y1="51%" y2="51%"><stop offset="0" stop-color="#ff452a"/><stop offset="1" stop-color="#ff2000"/></linearGradient><path fill="url(#brave-id-a)" d="M2395 723l60-147-170-176c-92-92-288-38-288-38l-222-252H992L769 363s-196-53-288 37L311 575l60 147-75 218 250 953c52 204 87 283 234 387l457 310c44 27 98 74 147 74s103-47 147-74l457-310c147-104 182-183 234-387l250-953z"/><path fill="#fff" d="M1935 524s287 347 287 420c0 75-36 94-72 133l-215 230c-20 20-63 54-38 113 25 60 60 134 20 210-40 77-110 128-155 120a820 820 0 01-190-90c-38-25-160-126-160-165s126-110 150-124c23-16 130-78 132-102s2-30-30-90-88-140-80-192c10-52 100-80 167-105l207-78c16-8 12-15-36-20-48-4-183-22-244-5s-163 43-173 57c-8 14-16 14-7 62l58 315c4 40 12 67-30 77-44 10-117 27-142 27s-99-17-142-27-35-37-30-77c4-40 48-268 57-315 10-48 1-48-7-62-10-14-113-40-174-57-60-17-196 1-244 6-48 4-52 10-36 20l207 77c66 25 158 53 167 105 10 53-47 132-80 192s-32 66-30 90 110 86 132 102c24 15 150 85 150 124s-119 140-159 165a820 820 0 01-190 90c-45 8-115-43-156-120-40-76-4-150 20-210 25-60-17-92-38-113l-215-230c-35-37-71-57-71-131s287-420 287-420l273 44c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47zm-215 1328c18 10 7 32-10 44l-254 198c-20 20-52 50-73 50s-52-30-73-50a13200 13200 0 00-255-198c-16-12-27-33-10-44l150-80a870 870 0 01188-73c15 0 110 34 187 73l150 80z"/><path fill="url(#brave-id-b)" d="M1999 363l-224-253H992L769 363s-196-53-288 37c0 0 260-23 350 123l276 47c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47 90-146 350-123 350-123-92-92-288-38-288-38"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Brave</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="opera_win">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 1090" width="20" height="20"><linearGradient id="opera-id-a" x1="461" x2="461" y1="59" y2="1033" gradientUnits="userSpaceOnUse"><stop offset=".6" stop-color="#ff1b2d"/><stop offset="1" stop-color="#a70014"/></linearGradient><linearGradient id="opera-id-b" x1="714" x2="714" y1="116" y2="978" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9c0000"/><stop offset=".7" stop-color="#ff4b4b"/></linearGradient><path fill="url(#opera-id-a)" d="M545 42.5a502.5 502.5 0 10334.9 877.1 362.4 362.4 0 01-201.4 61.5c-119.7 0-226.8-59.4-299-153-55.6-65.6-91.5-162.5-94-271.3V533c2.5-108.8 38.4-205.8 94-271.3 72-93.6 179.3-153 299-153 73.6 0 142.5 22.5 201.4 61.6a500.8 500.8 0 00-333-127.9h-2z"/><path fill="url(#opera-id-b)" d="M379.6 261.8c46-54.4 105.7-87.3 170.7-87.3 146.3 0 265 166 265 370.4 0 204.6-118.6 370.4-265 370.4-65 0-124.6-32.8-170.7-87.2 72 93.6 179.2 153 299 153A363 363 0 00880 919.6 501 501 0 001047.5 545a501.1 501.1 0 00-167.6-374.6 362.4 362.4 0 00-201.4-61.5c-119.7 0-226.8 59.4-299 153"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Opera</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="edge_win">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27600 27600" width="20" height="20"><linearGradient id="edge-id-A" gradientUnits="userSpaceOnUse"/><linearGradient id="edge-id-B" x1="6870" x2="24704" y1="18705" y2="18705" xlink:href="#edge-id-A"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient><linearGradient id="edge-id-C" x1="16272" x2="5133" y1="10968" y2="23102" xlink:href="#edge-id-A"><stop offset="0" stop-color="#1b9de2"/><stop offset=".16" stop-color="#1595df"/><stop offset=".67" stop-color="#0680d7"/><stop offset="1" stop-color="#0078d4"/></linearGradient><radialGradient id="edge-id-D" cx="16720" cy="18747" r="9538" xlink:href="#edge-id-A"><stop offset=".72" stop-opacity="0"/><stop offset=".95" stop-opacity=".53"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-E" cx="7130" cy="19866" r="14324" gradientTransform="matrix(.14843 -.98892 .79688 .1196 -8759 25542)" xlink:href="#edge-id-A"><stop offset=".76" stop-opacity="0"/><stop offset=".95" stop-opacity=".5"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-F" cx="2523" cy="4680" r="20243" gradientTransform="matrix(-.03715 .99931 -2.12836 -.07913 13579 3530)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#35c1f1"/><stop offset=".11" stop-color="#34c1ed"/><stop offset=".23" stop-color="#2fc2df"/><stop offset=".31" stop-color="#2bc3d2"/><stop offset=".67" stop-color="#36c752"/></radialGradient><radialGradient id="edge-id-G" cx="24247" cy="7758" r="9734" gradientTransform="matrix(.28109 .95968 -.78353 .22949 24510 -16292)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#66eb6e"/><stop offset="1" stop-color="#66eb6e" stop-opacity="0"/></radialGradient><path id="edge-id-H" d="M24105 20053a9345 9345 0 01-1053 472 10202 10202 0 01-3590 646c-4732 0-8855-3255-8855-7432 0-1175 680-2193 1643-2729-4280 180-5380 4640-5380 7253 0 7387 6810 8137 8276 8137 791 0 1984-230 2704-456l130-44a12834 12834 0 006660-5282c220-350-168-757-535-565z"/><path id="edge-id-I" d="M11571 25141a7913 7913 0 01-2273-2137 8145 8145 0 01-1514-4740 8093 8093 0 013093-6395 8082 8082 0 011373-859c312-148 846-414 1554-404a3236 3236 0 012569 1297 3184 3184 0 01636 1866c0-21 2446-7960-8005-7960-4390 0-8004 4166-8004 7820 0 2319 538 4170 1212 5604a12833 12833 0 007684 6757 12795 12795 0 003908 610c1414 0 2774-233 4045-656a7575 7575 0 01-6278-803z"/><path id="edge-id-J" d="M16231 15886c-80 105-330 250-330 566 0 260 170 512 472 723 1438 1003 4149 868 4156 868a5954 5954 0 003027-839 6147 6147 0 001133-850 6180 6180 0 001910-4437c26-2242-796-3732-1133-4392-2120-4141-6694-6525-11668-6525-7011 0-12703 5635-12798 12620 47-3654 3679-6605 7996-6605 350 0 2346 34 4200 1007 1634 858 2490 1894 3086 2921 618 1067 728 2415 728 2952s-271 1333-780 1990z"/><use fill="url(#edge-id-B)" xlink:href="#edge-id-H"/><use fill="url(#edge-id-D)" opacity=".35" xlink:href="#edge-id-H"/><use fill="url(#edge-id-C)" xlink:href="#edge-id-I"/><use fill="url(#edge-id-E)" opacity=".4" xlink:href="#edge-id-I"/><use fill="url(#edge-id-F)" xlink:href="#edge-id-J"/><use fill="url(#edge-id-G)" xlink:href="#edge-id-J"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Edge</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="ie_11">
+            <div class="ua-icon">
+              <svg viewBox="15 10 190 195" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient cx="0" cy="0" r="1" id="ie-grad-blue" gradientUnits="userSpaceOnUse" gradientTransform="matrix(152.4,-86.81,-71.84,-126.2,157,230.2)">
+                    <stop offset="0" style="stop-color:#3dc5f1;stop-opacity:1" />
+                    <stop offset="0.7905" style="stop-color:#31a5dc;stop-opacity:1" />
+                    <stop offset="1" style="stop-color:#1e71b8;stop-opacity:1" />
+                  </radialGradient>
+                  <radialGradient cx="0" cy="0" r="1" id="ie-grad-ring" gradientUnits="userSpaceOnUse" gradientTransform="matrix(62.56,-63.55,-168,-165.4,188.8,195.6)">
+                    <stop offset="0" style="stop-color:#f2ed7e;stop-opacity:1" />
+                    <stop offset="0.7398" style="stop-color:#ffcc09;stop-opacity:1" />
+                    <stop offset="0.8712" style="stop-color:#f2ed7e;stop-opacity:1" />
+                    <stop offset="1" style="stop-color:#ffcc09;stop-opacity:1" />
+                  </radialGradient>
+                  <radialGradient cx="0" cy="0" r="1" id="ie-grad-ring-glow" gradientUnits="userSpaceOnUse" gradientTransform="matrix(55.96,-55.47,-147.9,-149.2,171.8,204)">
+                    <stop offset="0" style="stop-color:#ffcc09;stop-opacity:1" />
+                    <stop offset="0.8712" style="stop-color:#f2ed7e;stop-opacity:1" />
+                    <stop offset="1" style="stop-color:#ffcc09;stop-opacity:1" />
+                  </radialGradient>
+                </defs>
+                <g transform="matrix(0.70323278,0,0,-0.76322618,-23.750089,259.30696)">
+                  <path d="M 80.87,195.2 C 80.87,128.4 135,74.22 201.8,74.22 c 53.1,0 98.1,34.18 114.4,81.78 h -65.4 c -9,-16.6 -26.6,-27.9 -46.8,-27.9 -20.2,0 -37.8,11.3 -46.8,27.9 -4,7.5 -6.3,16.1 -6.3,25.2 v 0.2 H 322 c 0.5,4.5 0.7,9.1 0.7,13.8 0,66.7 -54.1,120.9 -120.9,120.9 C 135,316.1 80.87,261.9 80.87,195.2 m 120.93,66.1 c 27.1,0 49.3,-21.3 50.8,-48 H 151 c 1.5,26.7 23.7,48 50.8,48" style="fill:url(#ie-grad-blue)" />
+                  <g transform="translate(202.2,260)" style="opacity:0.5">
+                    <path d="M 0,0 C 27.14,0 49.31,-21.23 50.83,-47.98 H -50.83 C -49.31,-21.23 -27.14,0 0,0 z m 2.201,-133.2 c -20.211,0 -37.791,11.3 -46.761,27.9 -4.06,7.53 -6.36,16.12 -6.36,25.25 v 0.24 H 120.1 c 0.5,4.5 0.8,9.07 0.8,13.71 C 120.9,0.693 66.79,54.84 0,54.84 -66.79,54.84 -120.9,0.693 -120.9,-66.1 -120.9,-132.9 -66.79,-187 0,-187 c 53.08,0 98.13,34.2 114.4,81.7 H 48.97 c -8.98,-16.6 -26.56,-27.9 -46.769,-27.9 z" style="fill:none;stroke:#ffffff;stroke-width:1.469;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+                  </g>
+                  <g transform="translate(201.8,261.3)">
+                    <path d="M 0,0 C 27.14,0 49.31,-21.23 50.83,-47.98 H -50.83 C -49.31,-21.23 -27.14,0 0,0 z m 2.201,-133.2 c -20.211,0 -37.791,11.3 -46.771,27.9 -4.05,7.53 -6.35,16.12 -6.35,25.25 v 0.24 H 120.1 c 0.5,4.5 0.8,9.07 0.8,13.71 C 120.9,0.693 66.79,54.84 0,54.84 -66.79,54.84 -120.9,0.693 -120.9,-66.1 -120.9,-132.9 -66.79,-187 0,-187 c 53.08,0 98.13,34.2 114.4,81.7 H 48.97 c -8.98,-16.6 -26.56,-27.9 -46.769,-27.9 z" style="fill:none;stroke:#0f5ea8;stroke-width:1.469;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10" />
+                  </g>
+                  <g style="opacity:0.25">
+                    <path d="M 139.4,90.34 C 112.7,78.16 90.81,76.06 79.91,86.96 57.6,109.3 89.6,177.4 151.4,239.2 c 61.8,61.8 129.9,93.8 152.3,71.5 9.5,-9.5 9.1,-27.4 0.7,-49.6 1.2,-1.9 2.4,-3.8 3.5,-5.8 11.3,29.3 11.1,54.2 -3.6,69 C 281.4,347.2 176.4,312.7 109.7,246 43,179.2 26.36,105.3 49.01,82.67 66.26,65.41 111.2,68.38 147.2,86.06 c -2.7,1.34 -5.3,2.77 -7.8,4.28" style="fill:url(#ie-grad-ring-glow)" />
+                  </g>
+                  <path d="M 127.8,259.2 C 61.04,192.4 40,105.3 62.64,82.67 79.89,65.41 111.2,68.38 147.2,86.06 c -2.7,1.34 -5.3,2.77 -7.8,4.28 C 112.7,78.16 90.81,76.06 79.91,86.96 57.6,109.3 89.6,177.4 151.4,239.2 c 61.8,61.8 129.9,93.8 152.3,71.5 9.5,-9.5 9.1,-27.4 0.7,-49.6 1.2,-1.9 2.4,-3.8 3.5,-5.8 11.3,29.3 11.1,54.2 -3.6,69 -5.9,5.9 -16.1,8.9 -29.1,8.9 -37.3,0 -97.9,-24.5 -147.4,-74" style="fill:url(#ie-grad-ring)" />
+                </g>
+              </svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">IE 11</div>
+              <div class="ua-platform">Windows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- macOS Section -->
+      <div class="category-section">
+        <div class="category-title">macOS</div>
+        <div class="ua-grid">
+          <div class="ua-item" data-ua="chrome_mac">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 190 190" width="20" height="20"><linearGradient id="chrome-id-d" x1="28.3" x2="80.8" y1="75" y2="44.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a52714" stop-opacity=".6"/><stop offset=".7" stop-color="#a52714" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-f" x1="109.9" x2="51.5" y1="164.5" y2="130.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#055524" stop-opacity=".4"/><stop offset=".3" stop-color="#055524" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-h" x1="121.9" x2="136.6" y1="49.8" y2="114.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ea6100" stop-opacity=".3"/><stop offset=".7" stop-color="#ea6100" stop-opacity="0"/></linearGradient><radialGradient id="chrome-id-a" cx="91.2" cy="55" r="84.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3e2723" stop-opacity=".2"/><stop offset="1" stop-color="#3e2723" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-i" cx="20.9" cy="47.5" r="78" xlink:href="#chrome-id-a"/><radialGradient id="chrome-id-j" cx="94.8" cy="95.1" r="87.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#263238" stop-opacity=".2"/><stop offset="1" stop-color="#263238" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-k" cx="33.3" cy="31" r="176.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><clipPath id="chrome-id-b"><circle cx="95" cy="95" r="88"/></clipPath><g clip-path="url(#chrome-id-b)"><use fill="#db4437" xlink:href="#chrome-id-c"/><use fill="url(#chrome-id-d)" xlink:href="#chrome-id-c"/><use fill="#0f9d58" xlink:href="#chrome-id-e"/><use fill="url(#chrome-id-f)" xlink:href="#chrome-id-e"/><use fill="#ffcd40" xlink:href="#chrome-id-g"/><use fill="url(#chrome-id-h)" xlink:href="#chrome-id-g"/><g fill-opacity=".1"><path fill="#3e2723" d="M61.3 114.7L21 47.4l39 67.8z"/><path fill="#263238" d="M128.8 116.3l-.8-.4-37.3 67 38.3-67z"/></g><path id="chrome-id-e" d="M7 183h83.8l39-39v-29H60.2L7 23.5z"/><path id="chrome-id-g" d="M95 55l34.6 60L91 183h92V55z"/><path id="chrome-id-c" d="M21 7v108h39.4L95 55h88V7z"/><path fill="url(#chrome-id-a)" d="M95 55v21l78.4-21z"/><path fill="url(#chrome-id-i)" d="M21 47.5l57.2 57.2L60.4 115z"/><path fill="url(#chrome-id-j)" d="M90.8 183l21-78.3 17.8 10.3z"/><circle cx="95" cy="95" r="40" fill="#f1f1f1"/><circle cx="95" cy="95" r="32" fill="#4285f4"/><circle cx="95" cy="95" r="88" fill="url(#chrome-id-k)"/><g fill="#3e2723" fill-opacity=".1"><path fill="#fff" d="M129.6 115a40 40 0 01-69.2 0L7 24.5 60.4 116a40 40 0 0069.2 0z"/><path d="M96 55h-.5a40 40 0 110 80h.5c22 0 40-18 40-40s-18-40-40-40zm-1 127a88 88 0 0088-87.5v.5A88 88 0 017 95v-.5A88 88 0 0095 182z"/><g fill-opacity=".2"><path fill="#fff" d="M130 116.3a39.3 39.3 0 003.4-32 38 38 0 01-3.8 30.7L92 183l38.2-66.5zM95 8a88 88 0 0188 87.5V95A88 88 0 007 95v.5A88 88 0 0195 8z"/><path d="M95 54c-22 0-40 18-40 40v1c0-22 18-40 40-40h88v-1z"/></g></g></g></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Chrome</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="firefox_mac">
+            <div class="ua-icon">
+              <svg id="firefox-id-Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"   viewBox="0 0 953.37 984" width="20" height="20">
+  <defs>
+    <radialGradient id="firefox-id-radial-gradient" cx="-14569.52" cy="9284.3" fx="-14598.28277817514" r="450.88" gradientTransform="matrix(0.76, 0.03, 0.05, -1.12, 11545.85, 11139.76)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#ffea00"/>
+      <stop offset="0.17" stop-color="#ffde00"/>
+      <stop offset="0.28" stop-color="#ffbf00"/>
+      <stop offset="0.43" stop-color="#ff8e00"/>
+      <stop offset="0.77" stop-color="#ff272d"/>
+      <stop offset="0.87" stop-color="#e0255a"/>
+      <stop offset="0.95" stop-color="#cc2477"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-2" cx="-7540.92" cy="8862.36" r="791.23" gradientTransform="matrix(1.23, 0, 0, -1.23, 9900.64, 11054.07)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00ccda"/>
+      <stop offset="0.22" stop-color="#0083ff"/>
+      <stop offset="0.26" stop-color="#007af9"/>
+      <stop offset="0.33" stop-color="#0060e8"/>
+      <stop offset="0.33" stop-color="#005fe7"/>
+      <stop offset="0.44" stop-color="#2639ad"/>
+      <stop offset="0.52" stop-color="#401e84"/>
+      <stop offset="0.57" stop-color="#4a1475"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient" x1="540.64" y1="254.8" x2="349.2" y2="881.03" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000f43" stop-opacity="0.4"/>
+      <stop offset="0.48" stop-color="#001962" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#002079" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="firefox-id-radial-gradient-3" cx="-8291.37" cy="7446.88" r="266.89" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffea00"/>
+      <stop offset="0.5" stop-color="#ff272d"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-4" cx="-8315.51" cy="7702.79" r="445.68" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe900"/>
+      <stop offset="0.16" stop-color="#ffaf0e"/>
+      <stop offset="0.32" stop-color="#ff7a1b"/>
+      <stop offset="0.47" stop-color="#ff4e26"/>
+      <stop offset="0.62" stop-color="#ff2c2e"/>
+      <stop offset="0.76" stop-color="#ff1434"/>
+      <stop offset="0.89" stop-color="#ff0538"/>
+      <stop offset="1" stop-color="#ff0039"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-5" cx="-8252.47" cy="7289.65" r="408.96" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff272d"/>
+      <stop offset="0.5" stop-color="#c42482"/>
+      <stop offset="0.99" stop-color="#620700"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-6" cx="715.19" cy="589.96" fx="743.1665035759816" fy="576.1323859732546" r="782.18" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.16" stop-color="#ffea00"/>
+      <stop offset="0.23" stop-color="#ffde00"/>
+      <stop offset="0.37" stop-color="#ffbf00"/>
+      <stop offset="0.54" stop-color="#ff8e00"/>
+      <stop offset="0.76" stop-color="#ff272d"/>
+      <stop offset="0.8" stop-color="#f92433"/>
+      <stop offset="0.84" stop-color="#e91c45"/>
+      <stop offset="0.89" stop-color="#cf0e62"/>
+      <stop offset="0.94" stop-color="#b5007f"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-7" cx="670.34" cy="952.71" r="891.45" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.28" stop-color="#ffea00"/>
+      <stop offset="0.4" stop-color="#fd0"/>
+      <stop offset="0.63" stop-color="#ffba00"/>
+      <stop offset="0.86" stop-color="#ff9100"/>
+      <stop offset="0.93" stop-color="#ff6711"/>
+      <stop offset="0.99" stop-color="#ff4a1d"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient-2" x1="-8977.08" y1="7615.91" x2="-8670.05" y2="7694.17" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482" stop-opacity="0.5"/>
+      <stop offset="0.47" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="0.49" stop-color="#ff2c2c" stop-opacity="0.51"/>
+      <stop offset="0.68" stop-color="#ff7a1a" stop-opacity="0.72"/>
+      <stop offset="0.83" stop-color="#ffb20d" stop-opacity="0.87"/>
+      <stop offset="0.94" stop-color="#ffd605" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#ffe302"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-3" x1="188.29" y1="2056.08" x2="133.72" y2="2195.93" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, -247, 2281.31)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#891551" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-4" x1="-39.01" y1="252.89" x2="55.1" y2="146.01" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.01" stop-color="#891551" stop-opacity="0.5"/>
+      <stop offset="0.48" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff272d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-5" x1="141.88" y1="68.53" x2="141.95" y2="143.31" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482"/>
+      <stop offset="0.08" stop-color="#c42482" stop-opacity="0.81"/>
+      <stop offset="0.21" stop-color="#c42482" stop-opacity="0.57"/>
+      <stop offset="0.33" stop-color="#c42482" stop-opacity="0.36"/>
+      <stop offset="0.45" stop-color="#c42482" stop-opacity="0.2"/>
+      <stop offset="0.56" stop-color="#c42482" stop-opacity="0.09"/>
+      <stop offset="0.67" stop-color="#c42482" stop-opacity="0.02"/>
+      <stop offset="0.77" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-6" x1="620.52" y1="947.88" x2="926.18" y2="264.39" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff14f"/>
+      <stop offset="0.27" stop-color="#ffee4c"/>
+      <stop offset="0.45" stop-color="#ffe643"/>
+      <stop offset="0.61" stop-color="#ffd834"/>
+      <stop offset="0.76" stop-color="#ffc41e"/>
+      <stop offset="0.89" stop-color="#ffab02"/>
+      <stop offset="0.9" stop-color="#ffa900"/>
+      <stop offset="0.95" stop-color="#ffa000"/>
+      <stop offset="1" stop-color="#ff9100"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-7" x1="680.88" y1="554.79" x2="536.1" y2="166.04" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff8e00"/>
+      <stop offset="0.04" stop-color="#ff8e00" stop-opacity="0.86"/>
+      <stop offset="0.08" stop-color="#ff8e00" stop-opacity="0.73"/>
+      <stop offset="0.13" stop-color="#ff8e00" stop-opacity="0.63"/>
+      <stop offset="0.18" stop-color="#ff8e00" stop-opacity="0.56"/>
+      <stop offset="0.23" stop-color="#ff8e00" stop-opacity="0.51"/>
+      <stop offset="0.28" stop-color="#ff8e00" stop-opacity="0.5"/>
+      <stop offset="0.39" stop-color="#ff8e00" stop-opacity="0.48"/>
+      <stop offset="0.52" stop-color="#ff8e00" stop-opacity="0.42"/>
+      <stop offset="0.68" stop-color="#ff8e00" stop-opacity="0.31"/>
+      <stop offset="0.84" stop-color="#ff8e00" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#ff8e00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <title>Firefox_Logo,_2017_2</title>
+  <g id="firefox-id-Layer_2" data-name="Layer 2">
+    <g id="firefox-id-Firefox_-_Large" data-name="Firefox - Large">
+      <path d="M770.28,91.56c-24,27.88-35.1,90.64-10.82,154.26s61.5,49.8,84.7,114.67c30.62,85.6,16.37,200.59,16.37,200.59s36.81,106.61,62.47-6.63C979.79,341.74,770.28,143.94,770.28,91.56Z" style="fill: url(#firefox-id-radial-gradient)"/>
+      <path id="firefox-id-_Path_" data-name=" Path " d="M478.07,974.64c245.24,0,443.9-199.74,443.9-446s-198.66-446-443.66-446S34.65,282.32,34.65,528.61C34.18,775.14,233.07,974.64,478.07,974.64Z" style="fill: url(#firefox-id-radial-gradient-2)"/>
+      <path d="M810.67,803.64a246.89,246.89,0,0,1-30.12,18.18,704,704,0,0,0,38.3-63c9.46-10.47,18.13-20.65,25.19-31.65,3.44-5.41,7.31-12.08,11.42-19.82,24.92-44.9,52.4-117.56,53.18-192.2v-5.66a257.6,257.6,0,0,0-5.71-55.75c.2,1.43.38,2.86.56,4.29-.22-1.1-.41-2.21-.64-3.31.37,2,.66,4,1,6,5.09,43.22,1.47,85.37-16.68,116.45-.29.45-.58.88-.87,1.32,9.41-47.23,12.56-99.39,2.09-151.6,0,0-4.19-25.38-35.38-102.44-18-44.35-49.83-80.72-78-107.21-24.69-30.55-47.11-51-59.47-64.06C689.72,126,678.9,105.61,674.45,92.31c-3.85-1.93-53.14-49.81-57-51.63-21.51,33.35-89.16,137.67-57,235.15,14.58,44.17,51.47,90,90.07,115.74,1.69,1.94,23,25,33.09,77.16,10.45,53.85,5,95.86-16.54,158-25.29,54.51-90.07,108.39-150.72,113.9-129.67,11.78-177.15-65.11-177.15-65.11C385.49,694,436.72,690.17,467.87,671c31.4-19.43,50.39-33.83,65.81-28.15C548.86,648.43,561,632,550.1,615a78.5,78.5,0,0,0-79.4-34.57c-31.43,5.11-60.23,30-101.41,5.89a85.52,85.52,0,0,1-7.73-5.06c-2.71-1.79,8.83,2.72,6.13.69-8-4.35-22.2-13.84-25.88-17.22-.61-.56,6.22,2.18,5.61,1.62-38.51-31.71-33.7-53.13-32.49-66.57,1-10.75,8-24.52,19.75-30.11,5.69,3.11,9.24,5.48,9.24,5.48s-2.43-5-3.74-7.58c.46-.2.9-.15,1.36-.34,4.66,2.25,15,8.1,20.41,11.67,7.07,5,9.33,9.44,9.33,9.44s1.86-1,.48-5.37c-.5-1.78-2.65-7.45-9.65-13.17h.44A81.2,81.2,0,0,1,374.42,478c2-7.18,5.53-14.68,4.75-28.09-.48-9.43-.26-11.87-1.92-15.51-1.49-3.13.83-4.35,3.42-1.1a32.83,32.83,0,0,0-2.21-7.4v-.24c3.23-11.24,68.25-40.46,73-43.88A67.36,67.36,0,0,0,470.59,361c3.62-5.76,6.34-13.85,7-26.11.36-8.84-3.76-14.73-69.51-21.62-18-1.77-28.53-14.8-34.53-26.82-1.09-2.59-2.21-4.94-3.33-7.28a58,58,0,0,1-2.56-8.43c10.75-30.87,28.81-57,55.37-76.7,1.45-1.32-5.78.34-4.34-1,1.69-1.54,12.71-6,14.79-7,2.54-1.2-10.88-6.9-22.73-5.51-12.07,1.36-14.63,2.8-21.07,5.53,2.67-2.66,11.17-6.15,9.18-6.13-13,2-29.18,9.56-43,18.12a10.73,10.73,0,0,1,.83-4.35c-6.44,2.73-22.26,13.79-26.87,23.14a44.33,44.33,0,0,0,.27-5.4,84.48,84.48,0,0,0-13.19,13.82l-.24.22c-37.36-15-70.23-16-98.05-9.28-6.09-6.11-9.06-1.64-22.91-32.07-.94-1.83.72,1.81,0,0-2.28-5.9,1.39,7.87,0,0-23.28,18.37-53.92,39.19-68.63,53.89-.18.59,17.16-4.9,0,0-6,1.72-5.6,5.28-6.51,37.5-.22,2.44,0,5.18-.22,7.38-11.75,15-19.75,27.64-22.78,34.21-15.19,26.18-31.93,67-48.15,131.55A334.36,334.36,0,0,1,75.2,398.36C61.71,432.63,48.67,486.44,46.07,569.3A483.61,483.61,0,0,1,58.6,518.64,473,473,0,0,0,93.33,719.71c9.33,22.82,24.76,57.46,51,95.4C226.9,902,343.31,956,472.21,956,606.79,956,727.64,897.13,810.67,803.64Z" style="fill: url(#firefox-id-linear-gradient)"/>
+      <path d="M711.1,866.71c162.87-18.86,235-186.7,142.38-190C769.85,674,634,875.61,711.1,866.71Z" style="fill: url(#firefox-id-radial-gradient-3)"/>
+      <path d="M865.21,642.42C977.26,577.21,948,436.34,948,436.34s-43.25,50.24-72.62,130.32C846.4,646,797.84,681.81,865.21,642.42Z" style="fill: url(#firefox-id-radial-gradient-4)"/>
+      <path d="M509.47,950.06C665.7,999.91,800,876.84,717.21,835.74,642,798.68,435.32,926.49,509.47,950.06Z" style="fill: url(#firefox-id-radial-gradient-5)"/>
+      <path d="M876.85,702.23c3.8-5.36,8.94-22.53,13.48-30.21,27.58-44.52,27.78-80,27.78-80.84,16.66-83.22,15.15-117.2,4.9-180-8.25-50.6-44.32-123.09-75.57-158-32.2-36-9.51-24.25-40.69-50.52-27.33-30.29-53.82-60.29-68.25-72.36C634.22,43.09,636.57,24.58,638.58,21.42c-.34.37-.84.92-1.47,1.64C635.87,18.14,635,14,635,14s-57,57-69,152c-7.83,62,15.38,126.68,49,168a381.37,381.37,0,0,0,59,58h0c25.4,36.48,39.38,81.49,39.38,129.91,0,121.24-98.34,219.53-219.65,219.53a220.45,220.45,0,0,1-49.13-5.52c-57.24-10.92-90.3-39.8-106.78-59.41-9.45-11.23-13.46-19.42-13.46-19.42,51.28,18.37,108,14.53,142.47-4.52,34.75-19.26,55.77-33.55,72.84-27.92,16.82,5.61,30.21-10.67,18.2-27.54-11.77-16.85-42.4-41-87.88-34.29-34.79,5.07-66.66,29.76-112.24,5.84a96.32,96.32,0,0,1-8.55-5c-3-1.77,9.77,2.69,6.79.68-8.87-4.32-24.57-13.73-28.64-17.07-.68-.56,6.88,2.16,6.2,1.6-42.62-31.45-37.3-52.69-36-66,1.07-10.66,8.81-24.32,21.86-29.86,6.3,3.08,10.23,5.43,10.23,5.43s-2.69-4.92-4.14-7.51c.51-.19,1-.15,1.5-.34,5.16,2.23,16.58,8,22.59,11.57,7.83,5,10.32,9.36,10.32,9.36s2.06-1,.54-5.33c-.56-1.77-2.93-7.39-10.68-13.07h.48a90.85,90.85,0,0,1,13.13,8.17c2.19-7.12,6.12-14.56,5.25-27.86-.53-9.35-.28-11.78-2.12-15.39-1.65-3.1.92-4.31,3.78-1.09a30,30,0,0,0-2.44-7.34v-.24c3.57-11.14,75.53-40.12,80.77-43.51a70.31,70.31,0,0,0,21.17-20.63c4-5.72,7-13.73,7.75-25.89.25-5.48-1.44-9.82-20.5-14-11.44-2.49-29.14-4.91-56.43-7.47-19.9-1.76-31.58-14.68-38.21-26.6-1.21-2.57-2.45-4.9-3.68-7.22a53.11,53.11,0,0,1-2.83-8.36,158.47,158.47,0,0,1,61.28-76.06c1.6-1.31-6.4.33-4.8-1,1.87-1.52,14.06-5.93,16.37-6.92,2.81-1.19-12-6.84-25.16-5.47-13.36,1.35-16.19,2.78-23.32,5.49,3-2.64,12.37-6.1,10.16-6.08-14.4,2-32.3,9.48-47.6,18a9.68,9.68,0,0,1,.92-4.31c-7.13,2.71-24.64,13.67-29.73,23a39.49,39.49,0,0,0,.29-5.35,88.68,88.68,0,0,0-14.6,13.7l-.27.22C258.14,196,221.75,195,191,201.72c-6.74-6.06-17.57-15.23-32.89-45.4-1-1.82-1.6,3.75-2.4,2-6-13.81-9.55-36.44-9-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.87-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.37,12.62-1.38,4-3.32,6.27-4.56,11.29l-.29.46c-.1-1.48.37-6.08,0-5.14A236.1,236.1,0,0,0,95.34,186c-5.49,18-11.88,42.61-12.89,74.57-.24,2.42,0,5.14-.25,7.32-13,14.83-21.86,27.39-25.2,33.91-16.81,26-35.33,66.44-53.29,130.46a319.14,319.14,0,0,1,28.54-50C17.32,416.25,2.89,469.62,0,551.8a438.52,438.52,0,0,1,13.87-50.24C11.29,556.36,17.68,624.3,52.32,701c20.57,45,67.92,136.6,183.62,208h0s39.36,29.3,107,51.26c5,1.81,10.06,3.6,15.23,5.33q-2.43-1-4.71-2A484.88,484.88,0,0,0,492.27,984c175.18.15,226.85-70.2,226.85-70.2l-.51.38q3.71-3.49,7.14-7.26c-27.64,26.08-90.75,27.84-114.3,26,40.22-11.81,66.69-21.81,118.17-41.52q9-3.36,18.48-7.64l2-.94c1.25-.58,2.49-1.13,3.75-1.74a349.21,349.21,0,0,0,70.26-44c51.7-41.3,63-81.56,68.83-108.1-.82,2.54-3.37,8.47-5.17,12.32-13.31,28.48-42.84,46-74.91,61a689,689,0,0,0,42.38-62.44C865.77,729.39,869,713.15,876.85,702.23Z" style="fill: url(#firefox-id-radial-gradient-6)"/>
+      <path d="M813.92,801c21.08-23.24,40-49.82,54.35-80,36.9-77.58,94-206.58,49-341.31C881.77,273.22,833,215,771.11,158.12,670.56,65.76,642.48,24.52,642.48,0c0,0-116.09,129.41-65.74,264.38s153.46,130,221.68,270.87c80.27,165.74-65,346.61-185,397.24,7.35-1.63,267-60.38,280.61-208.88C893.68,726.34,887.83,767.41,813.92,801Z" style="fill: url(#firefox-id-radial-gradient-7)"/>
+      <path d="M477.59,319.37c.39-8.77-4.16-14.66-76.68-21.46-29.84-2.76-41.26-30.33-44.75-41.94-10.61,27.56-15,56.49-12.64,91.48,1.61,22.92,17,47.52,24.37,62,0,0,1.64-2.13,2.39-2.91,13.86-14.43,71.94-36.42,77.39-39.54C453.69,363.16,476.58,346.44,477.59,319.37Z" style="fill: url(#firefox-id-linear-gradient-2)"/>
+      <path d="M158.31,156.47c-1-1.82-1.6,3.75-2.4,2-6-13.81-9.58-36.2-8.72-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.86-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.35,12.38-1.65,4.24-3.35,6.52-4.61,11.77-.39,1.43.39-6.32.05-5.38C84.72,201.68,80.19,271,82.69,268,133.17,214.14,191,201.36,191,201.36c-6.15-4.53-19.53-17.63-32.7-44.89Z" style="fill: url(#firefox-id-linear-gradient-3)"/>
+      <path d="M349.84,720.1c-69.72-29.77-149-71.75-146-167.14C207.92,427.35,321,452.18,321,452.18c-4.27,1-15.68,9.16-19.72,17.82-4.27,10.83-12.07,35.28,11.55,60.9,37.09,40.19-76.2,95.36,98.66,199.57,4.41,2.4-41-1.43-61.64-10.36Z" style="fill: url(#firefox-id-linear-gradient-4)"/>
+      <path d="M325.07,657.5c49.44,17.21,107,14.19,141.52-4.86,23.09-12.85,52.7-33.43,70.92-28.35-15.78-6.24-27.73-9.15-42.1-9.86-2.45,0-5.38,0-8-.32a136.24,136.24,0,0,0-15.76.86c-8.9.82-18.77,6.43-27.74,5.53-.48,0,8.7-3.77,8-3.61-4.75,1-9.92,1.21-15.37,1.88-3.47.39-6.45.82-9.89,1-103,8.73-190-55.81-190-55.81-7.41,25,33.17,74.3,88.52,93.57Z" style="fill: url(#firefox-id-linear-gradient-5)"/>
+      <path d="M813.74,801.65c104.16-102.27,156.86-226.58,134.58-366,0,0,8.9,71.5-24.85,144.63,16.21-71.39,18.1-160.11-25-252C841,205.64,746.45,141.11,710.35,114.19,655.66,73.4,633,31.87,632.57,23.3c-16.34,33.48-65.77,148.2-5.31,247,56.64,92.56,145.86,120,208.33,205C950.67,631.67,813.74,801.65,813.74,801.65Z" style="fill: url(#firefox-id-linear-gradient-6)"/>
+      <path d="M798.81,535.55C762.41,460.35,717,427.55,674,392c5,7,6.23,9.47,9,14,37.83,40.32,93.61,138.66,53.11,262.11C659.88,900.48,355,791.06,323,760.32,335.93,894.81,561,959.16,707.6,872,791,793,858.47,658.79,798.81,535.55Z" style="fill: url(#firefox-id-linear-gradient-7)"/>
+    </g>
+  </g>
+</svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Firefox</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="brave_mac">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2770 2770" width="20" height="20"><linearGradient id="brave-id-a" y1="51%" y2="51%"><stop offset=".4" stop-color="#f50"/><stop offset=".6" stop-color="#ff2000"/></linearGradient><linearGradient id="brave-id-b" x1="2%" y1="51%" y2="51%"><stop offset="0" stop-color="#ff452a"/><stop offset="1" stop-color="#ff2000"/></linearGradient><path fill="url(#brave-id-a)" d="M2395 723l60-147-170-176c-92-92-288-38-288-38l-222-252H992L769 363s-196-53-288 37L311 575l60 147-75 218 250 953c52 204 87 283 234 387l457 310c44 27 98 74 147 74s103-47 147-74l457-310c147-104 182-183 234-387l250-953z"/><path fill="#fff" d="M1935 524s287 347 287 420c0 75-36 94-72 133l-215 230c-20 20-63 54-38 113 25 60 60 134 20 210-40 77-110 128-155 120a820 820 0 01-190-90c-38-25-160-126-160-165s126-110 150-124c23-16 130-78 132-102s2-30-30-90-88-140-80-192c10-52 100-80 167-105l207-78c16-8 12-15-36-20-48-4-183-22-244-5s-163 43-173 57c-8 14-16 14-7 62l58 315c4 40 12 67-30 77-44 10-117 27-142 27s-99-17-142-27-35-37-30-77c4-40 48-268 57-315 10-48 1-48-7-62-10-14-113-40-174-57-60-17-196 1-244 6-48 4-52 10-36 20l207 77c66 25 158 53 167 105 10 53-47 132-80 192s-32 66-30 90 110 86 132 102c24 15 150 85 150 124s-119 140-159 165a820 820 0 01-190 90c-45 8-115-43-156-120-40-76-4-150 20-210 25-60-17-92-38-113l-215-230c-35-37-71-57-71-131s287-420 287-420l273 44c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47zm-215 1328c18 10 7 32-10 44l-254 198c-20 20-52 50-73 50s-52-30-73-50a13200 13200 0 00-255-198c-16-12-27-33-10-44l150-80a870 870 0 01188-73c15 0 110 34 187 73l150 80z"/><path fill="url(#brave-id-b)" d="M1999 363l-224-253H992L769 363s-196-53-288 37c0 0 260-23 350 123l276 47c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47 90-146 350-123 350-123-92-92-288-38-288-38"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Brave</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="opera_mac">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 1090" width="20" height="20"><linearGradient id="opera-id-a" x1="461" x2="461" y1="59" y2="1033" gradientUnits="userSpaceOnUse"><stop offset=".6" stop-color="#ff1b2d"/><stop offset="1" stop-color="#a70014"/></linearGradient><linearGradient id="opera-id-b" x1="714" x2="714" y1="116" y2="978" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9c0000"/><stop offset=".7" stop-color="#ff4b4b"/></linearGradient><path fill="url(#opera-id-a)" d="M545 42.5a502.5 502.5 0 10334.9 877.1 362.4 362.4 0 01-201.4 61.5c-119.7 0-226.8-59.4-299-153-55.6-65.6-91.5-162.5-94-271.3V533c2.5-108.8 38.4-205.8 94-271.3 72-93.6 179.3-153 299-153 73.6 0 142.5 22.5 201.4 61.6a500.8 500.8 0 00-333-127.9h-2z"/><path fill="url(#opera-id-b)" d="M379.6 261.8c46-54.4 105.7-87.3 170.7-87.3 146.3 0 265 166 265 370.4 0 204.6-118.6 370.4-265 370.4-65 0-124.6-32.8-170.7-87.2 72 93.6 179.2 153 299 153A363 363 0 00880 919.6 501 501 0 001047.5 545a501.1 501.1 0 00-167.6-374.6 362.4 362.4 0 00-201.4-61.5c-119.7 0-226.8 59.4-299 153"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Opera</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="edge_mac">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27600 27600" width="20" height="20"><linearGradient id="edge-id-A" gradientUnits="userSpaceOnUse"/><linearGradient id="edge-id-B" x1="6870" x2="24704" y1="18705" y2="18705" xlink:href="#edge-id-A"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient><linearGradient id="edge-id-C" x1="16272" x2="5133" y1="10968" y2="23102" xlink:href="#edge-id-A"><stop offset="0" stop-color="#1b9de2"/><stop offset=".16" stop-color="#1595df"/><stop offset=".67" stop-color="#0680d7"/><stop offset="1" stop-color="#0078d4"/></linearGradient><radialGradient id="edge-id-D" cx="16720" cy="18747" r="9538" xlink:href="#edge-id-A"><stop offset=".72" stop-opacity="0"/><stop offset=".95" stop-opacity=".53"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-E" cx="7130" cy="19866" r="14324" gradientTransform="matrix(.14843 -.98892 .79688 .1196 -8759 25542)" xlink:href="#edge-id-A"><stop offset=".76" stop-opacity="0"/><stop offset=".95" stop-opacity=".5"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-F" cx="2523" cy="4680" r="20243" gradientTransform="matrix(-.03715 .99931 -2.12836 -.07913 13579 3530)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#35c1f1"/><stop offset=".11" stop-color="#34c1ed"/><stop offset=".23" stop-color="#2fc2df"/><stop offset=".31" stop-color="#2bc3d2"/><stop offset=".67" stop-color="#36c752"/></radialGradient><radialGradient id="edge-id-G" cx="24247" cy="7758" r="9734" gradientTransform="matrix(.28109 .95968 -.78353 .22949 24510 -16292)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#66eb6e"/><stop offset="1" stop-color="#66eb6e" stop-opacity="0"/></radialGradient><path id="edge-id-H" d="M24105 20053a9345 9345 0 01-1053 472 10202 10202 0 01-3590 646c-4732 0-8855-3255-8855-7432 0-1175 680-2193 1643-2729-4280 180-5380 4640-5380 7253 0 7387 6810 8137 8276 8137 791 0 1984-230 2704-456l130-44a12834 12834 0 006660-5282c220-350-168-757-535-565z"/><path id="edge-id-I" d="M11571 25141a7913 7913 0 01-2273-2137 8145 8145 0 01-1514-4740 8093 8093 0 013093-6395 8082 8082 0 011373-859c312-148 846-414 1554-404a3236 3236 0 012569 1297 3184 3184 0 01636 1866c0-21 2446-7960-8005-7960-4390 0-8004 4166-8004 7820 0 2319 538 4170 1212 5604a12833 12833 0 007684 6757 12795 12795 0 003908 610c1414 0 2774-233 4045-656a7575 7575 0 01-6278-803z"/><path id="edge-id-J" d="M16231 15886c-80 105-330 250-330 566 0 260 170 512 472 723 1438 1003 4149 868 4156 868a5954 5954 0 003027-839 6147 6147 0 001133-850 6180 6180 0 001910-4437c26-2242-796-3732-1133-4392-2120-4141-6694-6525-11668-6525-7011 0-12703 5635-12798 12620 47-3654 3679-6605 7996-6605 350 0 2346 34 4200 1007 1634 858 2490 1894 3086 2921 618 1067 728 2415 728 2952s-271 1333-780 1990z"/><use fill="url(#edge-id-B)" xlink:href="#edge-id-H"/><use fill="url(#edge-id-D)" opacity=".35" xlink:href="#edge-id-H"/><use fill="url(#edge-id-C)" xlink:href="#edge-id-I"/><use fill="url(#edge-id-E)" opacity=".4" xlink:href="#edge-id-I"/><use fill="url(#edge-id-F)" xlink:href="#edge-id-J"/><use fill="url(#edge-id-G)" xlink:href="#edge-id-J"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Edge</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="safari_mac">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="194.5 190.1 135.1 135.1" width="20" height="20"><style>.safari-cls-b{color-interpolation-filters:srgb}.safari-cls-c{flood-opacity:.31}</style><defs><linearGradient id="safari-id-a" x1="132.55" x2="134.37" y1="111.67" y2="-105.3" xlink:href="#safari-id-b"><stop offset="0" stop-color="#d2d2d2"/><stop offset=".53" stop-color="#f2f2f2"/><stop offset="1" stop-color="#fff"/></linearGradient><linearGradient id="safari-id-b" gradientUnits="userSpaceOnUse"/><linearGradient id="safari-id-c" x1="65.44" x2="67.4" y1="115.72" y2="17.14" xlink:href="#safari-id-b"><stop offset="0" stop-color="#005ad5"/><stop offset=".16" stop-color="#0875f0"/><stop offset=".31" stop-color="#218cee"/><stop offset=".63" stop-color="#27a5f3"/><stop offset=".81" stop-color="#25aaf2"/><stop offset="1" stop-color="#21aaef"/></linearGradient><linearGradient id="safari-id-d" x1="158.7" x2="176.28" y1="96.71" y2="79.53" xlink:href="#safari-id-b"><stop offset="0" stop-color="#c72e24"/><stop offset="1" stop-color="#fd3b2f"/></linearGradient><filter id="safari-id-e" class="safari-cls-b"><feFlood flood-opacity=".28"/><feComposite in2="SourceGraphic" operator="in"/><feGaussianBlur stdDeviation="3"/><feOffset dx=".3" dy="2.8"/><feComposite in="SourceGraphic"/></filter><filter id="safari-id-f" class="safari-cls-b"><feFlood class="safari-cls-c"/><feComposite class="safari-cls-c" in2="SourceGraphic" operator="out"/><feGaussianBlur flood-opacity=".3" stdDeviation=".7"/><feOffset dy="1.8"/><feComposite in2="SourceGraphic" operator="atop"/></filter><filter id="safari-id-g" class="safari-cls-b"><feFlood flood-opacity=".61"/><feComposite in2="SourceGraphic" operator="in"/><feGaussianBlur stdDeviation=".5"/><feOffset dx=".8" dy=".8"/><feComposite in="SourceGraphic" result="A"/><feColorMatrix values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"/><feFlood flood-opacity=".4"/><feComposite in2="A" operator="in"/><feGaussianBlur stdDeviation="3.8"/><feOffset dx="2.3" dy="3.3"/><feComposite in="A"/></filter><filter id="safari-id-h" width="110%" height="110%" x="-1%" y="-1%"><feGaussianBlur in="SourceAlpha" stdDeviation=".4"/><feOffset dx=".1" dy=".2"/><feComponentTransfer result="A"><feFuncA type="linear"/></feComponentTransfer><feFlood flood-color="rgba(0,0,0,0.5)"/><feComposite in2="A" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="safari-id-i" cx="-69.88" cy="69.29" r="54.01" gradientTransform="matrix(.9023 -.01249 .0377 2.7234 -9.44 -120.29)" xlink:href="#safari-id-b"><stop offset="0" stop-color="#24a5f3" stop-opacity=".01"/><stop offset="1" stop-color="#1e8ceb" stop-opacity=".98"/></radialGradient><radialGradient id="safari-id-j" cx="109.35" cy="13.76" r="93.08" gradientTransform="matrix(-.01822 1.0922 -1.042 -.01765 136.95 -115.33)" xlink:href="#safari-id-b"><stop offset="0" stop-opacity="0"/><stop offset=".96" stop-color="#5488d6" stop-opacity="0"/><stop offset="1" stop-color="#5d96eb"/></radialGradient></defs><rect width="220" height="220" x="22" y="-106.53" fill="url(#safari-id-a)" filter="url(#safari-id-e)" ry="49" transform="matrix(.56938 0 0 .56921 186.86 255.75)"/><g filter="url(#safari-id-f)" transform="translate(194.2 190.07)"><ellipse cx="67.77" cy="67.73" fill="url(#safari-id-c)" paint-order="stroke fill markers" rx="54.01" ry="53.98"/><ellipse cx="-69.88" cy="69.29" fill="url(#safari-id-i)" rx="54.01" ry="53.98" transform="translate(137.65 -1.55)"/></g><ellipse cx="120" cy="14.15" fill="url(#safari-id-j)" rx="93.08" ry="93.67" transform="matrix(.58082 0 0 .57636 192.3 249.63)"/><g filter="url(#safari-id-g)" transform="matrix(.58289 0 0 .56508 196.8 181.63)"><path fill="#cac7c8" d="m46 191.66.73.35 72.18-48.2-7.34-8.95L46 191.66Z"/><path fill="#fbfffc" d="m45.8 190.87.2.8 65.57-56.8-6.95-8.92-58.83 64.92Z"/><path fill="url(#safari-id-d)" d="m118.91 143.81-7.35-8.95 66.08-57.2.27.73-59 65.42Z"/><path fill="#fb645c" d="m104.62 125.95 6.94 8.92 66.08-57.2-.65-.35-72.37 48.63Z"/></g><path stroke="#fff" stroke-linecap="round" stroke-miterlimit="1" stroke-width="1.33" d="m286.59 278.44 3.14-2.14m-11.23-17.8 7.8-1.37m-8.32-2.9 3.78-.3m-3.3-12.47 7.8 1.38m-8.2 3.03 3.76.38m-1.2-13.05 7.47 2.73m-3.77-10.5 6.86 3.96m-1.87-10.96 6.07 5.09m.05-11.07 5.09 6.07m1.97-10.99 3.97 6.86m3.7-10.53 2.71 7.43m5.62-9.62 1.37 7.8m15.62-7.89-1.38 7.8m9.82-5.6-2.72 7.42m10.5-3.75-3.96 6.86m10.98-1.89-5.12 6.07m16.18 6.96-6.87 3.96m10.45 3.88-7.45 2.7m9.64 5.6-7.82 1.38m7.81 15.79-7.82-1.39m5.6 9.7-7.44-2.71m3.8 10.47-6.87-3.95m1.91 10.98-6.07-5.07m-.05 11.2-5.1-6.08m-1.95 10.99-4-6.88m-3.87 10.5-2.7-7.43m-5.61 9.61-1.37-7.78m-15.78 7.75 1.4-7.86m-9.7 5.58 2.72-7.47m-10.5 3.73 3.97-6.87m-10.96 1.9 5.08-6.03m-8.26 3.13 2.75-2.68m3.84 8.23 2.2-3.1m5.2 7.44 1.66-3.45m6.43 6.47 1.02-3.7m7.52 5.32.43-3.82m8.08 3.8-.31-3.84m8.81 2.33-.97-3.69m9.06.75-1.58-3.48m9.05-.76-2.16-3.18m8.78-2.38-2.68-2.73m8.24-3.85-3.11-2.2m7.42-5.2-3.47-1.67m6.42-6.41-3.7-1.03m5.17-7.46-3.78-.37m3.8-8.24-3.81.3m2.35-8.8-3.7.97m.8-9.06-3.49 1.61m-1.03-9.12-3.2 2.2m-2.12-8.62-2.72 2.7m-3.84-8.28-2.23 3.12m-5.21-7.45-1.66 3.44m-6.55-6.32-1.02 3.63m-7.42-5.2-.38 3.81m-8.09-3.66.28 3.8m-8.79-2.34.95 3.68m-8.9-.72 1.61 3.46m-9.06.82 2.18 3.16m-8.82 2.27 2.68 2.7m-8.25 3.85 3.1 2.23m-7.44 5.17 3.42 1.66m-6.3 6.36 3.7 1.05m-3.71 24.39 3.7-.91m-2.44 5.03 7.48-2.72m-5.86 6.73 3.5-1.61m-1.53 5.43 6.87-3.95m-13.33-20.52 7.96.01m41.16-41.44v-7.96m.02 98.74.01-7.94m49.33-41.4-7.95-.01" filter="url(#safari-id-h)" transform="translate(-65 7.73)"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Safari</div>
+              <div class="ua-platform">macOS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linux Section -->
+      <div class="category-section">
+        <div class="category-title">Linux</div>
+        <div class="ua-grid">
+          <div class="ua-item" data-ua="chrome_linux">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 190 190" width="20" height="20"><linearGradient id="chrome-id-d" x1="28.3" x2="80.8" y1="75" y2="44.4" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#a52714" stop-opacity=".6"/><stop offset=".7" stop-color="#a52714" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-f" x1="109.9" x2="51.5" y1="164.5" y2="130.3" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#055524" stop-opacity=".4"/><stop offset=".3" stop-color="#055524" stop-opacity="0"/></linearGradient><linearGradient id="chrome-id-h" x1="121.9" x2="136.6" y1="49.8" y2="114.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#ea6100" stop-opacity=".3"/><stop offset=".7" stop-color="#ea6100" stop-opacity="0"/></linearGradient><radialGradient id="chrome-id-a" cx="91.2" cy="55" r="84.1" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#3e2723" stop-opacity=".2"/><stop offset="1" stop-color="#3e2723" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-i" cx="20.9" cy="47.5" r="78" xlink:href="#chrome-id-a"/><radialGradient id="chrome-id-j" cx="94.8" cy="95.1" r="87.9" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#263238" stop-opacity=".2"/><stop offset="1" stop-color="#263238" stop-opacity="0"/></radialGradient><radialGradient id="chrome-id-k" cx="33.3" cy="31" r="176.8" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff" stop-opacity=".1"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><clipPath id="chrome-id-b"><circle cx="95" cy="95" r="88"/></clipPath><g clip-path="url(#chrome-id-b)"><use fill="#db4437" xlink:href="#chrome-id-c"/><use fill="url(#chrome-id-d)" xlink:href="#chrome-id-c"/><use fill="#0f9d58" xlink:href="#chrome-id-e"/><use fill="url(#chrome-id-f)" xlink:href="#chrome-id-e"/><use fill="#ffcd40" xlink:href="#chrome-id-g"/><use fill="url(#chrome-id-h)" xlink:href="#chrome-id-g"/><g fill-opacity=".1"><path fill="#3e2723" d="M61.3 114.7L21 47.4l39 67.8z"/><path fill="#263238" d="M128.8 116.3l-.8-.4-37.3 67 38.3-67z"/></g><path id="chrome-id-e" d="M7 183h83.8l39-39v-29H60.2L7 23.5z"/><path id="chrome-id-g" d="M95 55l34.6 60L91 183h92V55z"/><path id="chrome-id-c" d="M21 7v108h39.4L95 55h88V7z"/><path fill="url(#chrome-id-a)" d="M95 55v21l78.4-21z"/><path fill="url(#chrome-id-i)" d="M21 47.5l57.2 57.2L60.4 115z"/><path fill="url(#chrome-id-j)" d="M90.8 183l21-78.3 17.8 10.3z"/><circle cx="95" cy="95" r="40" fill="#f1f1f1"/><circle cx="95" cy="95" r="32" fill="#4285f4"/><circle cx="95" cy="95" r="88" fill="url(#chrome-id-k)"/><g fill="#3e2723" fill-opacity=".1"><path fill="#fff" d="M129.6 115a40 40 0 01-69.2 0L7 24.5 60.4 116a40 40 0 0069.2 0z"/><path d="M96 55h-.5a40 40 0 110 80h.5c22 0 40-18 40-40s-18-40-40-40zm-1 127a88 88 0 0088-87.5v.5A88 88 0 017 95v-.5A88 88 0 0095 182z"/><g fill-opacity=".2"><path fill="#fff" d="M130 116.3a39.3 39.3 0 003.4-32 38 38 0 01-3.8 30.7L92 183l38.2-66.5zM95 8a88 88 0 0188 87.5V95A88 88 0 007 95v.5A88 88 0 0195 8z"/><path d="M95 54c-22 0-40 18-40 40v1c0-22 18-40 40-40h88v-1z"/></g></g></g></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Chrome</div>
+              <div class="ua-platform">Linux</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="firefox_linux">
+            <div class="ua-icon">
+              <svg id="firefox-id-Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"   viewBox="0 0 953.37 984" width="20" height="20">
+  <defs>
+    <radialGradient id="firefox-id-radial-gradient" cx="-14569.52" cy="9284.3" fx="-14598.28277817514" r="450.88" gradientTransform="matrix(0.76, 0.03, 0.05, -1.12, 11545.85, 11139.76)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stop-color="#ffea00"/>
+      <stop offset="0.17" stop-color="#ffde00"/>
+      <stop offset="0.28" stop-color="#ffbf00"/>
+      <stop offset="0.43" stop-color="#ff8e00"/>
+      <stop offset="0.77" stop-color="#ff272d"/>
+      <stop offset="0.87" stop-color="#e0255a"/>
+      <stop offset="0.95" stop-color="#cc2477"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-2" cx="-7540.92" cy="8862.36" r="791.23" gradientTransform="matrix(1.23, 0, 0, -1.23, 9900.64, 11054.07)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00ccda"/>
+      <stop offset="0.22" stop-color="#0083ff"/>
+      <stop offset="0.26" stop-color="#007af9"/>
+      <stop offset="0.33" stop-color="#0060e8"/>
+      <stop offset="0.33" stop-color="#005fe7"/>
+      <stop offset="0.44" stop-color="#2639ad"/>
+      <stop offset="0.52" stop-color="#401e84"/>
+      <stop offset="0.57" stop-color="#4a1475"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient" x1="540.64" y1="254.8" x2="349.2" y2="881.03" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#000f43" stop-opacity="0.4"/>
+      <stop offset="0.48" stop-color="#001962" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#002079" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="firefox-id-radial-gradient-3" cx="-8291.37" cy="7446.88" r="266.89" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffea00"/>
+      <stop offset="0.5" stop-color="#ff272d"/>
+      <stop offset="1" stop-color="#c42482"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-4" cx="-8315.51" cy="7702.79" r="445.68" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe900"/>
+      <stop offset="0.16" stop-color="#ffaf0e"/>
+      <stop offset="0.32" stop-color="#ff7a1b"/>
+      <stop offset="0.47" stop-color="#ff4e26"/>
+      <stop offset="0.62" stop-color="#ff2c2e"/>
+      <stop offset="0.76" stop-color="#ff1434"/>
+      <stop offset="0.89" stop-color="#ff0538"/>
+      <stop offset="1" stop-color="#ff0039"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-5" cx="-8252.47" cy="7289.65" r="408.96" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff272d"/>
+      <stop offset="0.5" stop-color="#c42482"/>
+      <stop offset="0.99" stop-color="#620700"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-6" cx="715.19" cy="589.96" fx="743.1665035759816" fy="576.1323859732546" r="782.18" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.16" stop-color="#ffea00"/>
+      <stop offset="0.23" stop-color="#ffde00"/>
+      <stop offset="0.37" stop-color="#ffbf00"/>
+      <stop offset="0.54" stop-color="#ff8e00"/>
+      <stop offset="0.76" stop-color="#ff272d"/>
+      <stop offset="0.8" stop-color="#f92433"/>
+      <stop offset="0.84" stop-color="#e91c45"/>
+      <stop offset="0.89" stop-color="#cf0e62"/>
+      <stop offset="0.94" stop-color="#b5007f"/>
+    </radialGradient>
+    <radialGradient id="firefox-id-radial-gradient-7" cx="670.34" cy="952.71" r="891.45" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.28" stop-color="#ffea00"/>
+      <stop offset="0.4" stop-color="#fd0"/>
+      <stop offset="0.63" stop-color="#ffba00"/>
+      <stop offset="0.86" stop-color="#ff9100"/>
+      <stop offset="0.93" stop-color="#ff6711"/>
+      <stop offset="0.99" stop-color="#ff4a1d"/>
+    </radialGradient>
+    <linearGradient id="firefox-id-linear-gradient-2" x1="-8977.08" y1="7615.91" x2="-8670.05" y2="7694.17" gradientTransform="matrix(1.22, 0.12, 0.12, -1.22, 10186.72, 10733.96)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482" stop-opacity="0.5"/>
+      <stop offset="0.47" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="0.49" stop-color="#ff2c2c" stop-opacity="0.51"/>
+      <stop offset="0.68" stop-color="#ff7a1a" stop-opacity="0.72"/>
+      <stop offset="0.83" stop-color="#ffb20d" stop-opacity="0.87"/>
+      <stop offset="0.94" stop-color="#ffd605" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#ffe302"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-3" x1="188.29" y1="2056.08" x2="133.72" y2="2195.93" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, -247, 2281.31)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#891551" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-4" x1="-39.01" y1="252.89" x2="55.1" y2="146.01" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.01" stop-color="#891551" stop-opacity="0.5"/>
+      <stop offset="0.48" stop-color="#ff272d" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#ff272d" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-5" x1="141.88" y1="68.53" x2="141.95" y2="143.31" gradientTransform="matrix(0.99, 0.1, 0.1, -0.99, 232.13, 720.9)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c42482"/>
+      <stop offset="0.08" stop-color="#c42482" stop-opacity="0.81"/>
+      <stop offset="0.21" stop-color="#c42482" stop-opacity="0.57"/>
+      <stop offset="0.33" stop-color="#c42482" stop-opacity="0.36"/>
+      <stop offset="0.45" stop-color="#c42482" stop-opacity="0.2"/>
+      <stop offset="0.56" stop-color="#c42482" stop-opacity="0.09"/>
+      <stop offset="0.67" stop-color="#c42482" stop-opacity="0.02"/>
+      <stop offset="0.77" stop-color="#c42482" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-6" x1="620.52" y1="947.88" x2="926.18" y2="264.39" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff14f"/>
+      <stop offset="0.27" stop-color="#ffee4c"/>
+      <stop offset="0.45" stop-color="#ffe643"/>
+      <stop offset="0.61" stop-color="#ffd834"/>
+      <stop offset="0.76" stop-color="#ffc41e"/>
+      <stop offset="0.89" stop-color="#ffab02"/>
+      <stop offset="0.9" stop-color="#ffa900"/>
+      <stop offset="0.95" stop-color="#ffa000"/>
+      <stop offset="1" stop-color="#ff9100"/>
+    </linearGradient>
+    <linearGradient id="firefox-id-linear-gradient-7" x1="680.88" y1="554.79" x2="536.1" y2="166.04" gradientTransform="matrix(1, 0, 0, -1, 0, 984)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff8e00"/>
+      <stop offset="0.04" stop-color="#ff8e00" stop-opacity="0.86"/>
+      <stop offset="0.08" stop-color="#ff8e00" stop-opacity="0.73"/>
+      <stop offset="0.13" stop-color="#ff8e00" stop-opacity="0.63"/>
+      <stop offset="0.18" stop-color="#ff8e00" stop-opacity="0.56"/>
+      <stop offset="0.23" stop-color="#ff8e00" stop-opacity="0.51"/>
+      <stop offset="0.28" stop-color="#ff8e00" stop-opacity="0.5"/>
+      <stop offset="0.39" stop-color="#ff8e00" stop-opacity="0.48"/>
+      <stop offset="0.52" stop-color="#ff8e00" stop-opacity="0.42"/>
+      <stop offset="0.68" stop-color="#ff8e00" stop-opacity="0.31"/>
+      <stop offset="0.84" stop-color="#ff8e00" stop-opacity="0.17"/>
+      <stop offset="1" stop-color="#ff8e00" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <title>Firefox_Logo,_2017_2</title>
+  <g id="firefox-id-Layer_2" data-name="Layer 2">
+    <g id="firefox-id-Firefox_-_Large" data-name="Firefox - Large">
+      <path d="M770.28,91.56c-24,27.88-35.1,90.64-10.82,154.26s61.5,49.8,84.7,114.67c30.62,85.6,16.37,200.59,16.37,200.59s36.81,106.61,62.47-6.63C979.79,341.74,770.28,143.94,770.28,91.56Z" style="fill: url(#firefox-id-radial-gradient)"/>
+      <path id="firefox-id-_Path_" data-name=" Path " d="M478.07,974.64c245.24,0,443.9-199.74,443.9-446s-198.66-446-443.66-446S34.65,282.32,34.65,528.61C34.18,775.14,233.07,974.64,478.07,974.64Z" style="fill: url(#firefox-id-radial-gradient-2)"/>
+      <path d="M810.67,803.64a246.89,246.89,0,0,1-30.12,18.18,704,704,0,0,0,38.3-63c9.46-10.47,18.13-20.65,25.19-31.65,3.44-5.41,7.31-12.08,11.42-19.82,24.92-44.9,52.4-117.56,53.18-192.2v-5.66a257.6,257.6,0,0,0-5.71-55.75c.2,1.43.38,2.86.56,4.29-.22-1.1-.41-2.21-.64-3.31.37,2,.66,4,1,6,5.09,43.22,1.47,85.37-16.68,116.45-.29.45-.58.88-.87,1.32,9.41-47.23,12.56-99.39,2.09-151.6,0,0-4.19-25.38-35.38-102.44-18-44.35-49.83-80.72-78-107.21-24.69-30.55-47.11-51-59.47-64.06C689.72,126,678.9,105.61,674.45,92.31c-3.85-1.93-53.14-49.81-57-51.63-21.51,33.35-89.16,137.67-57,235.15,14.58,44.17,51.47,90,90.07,115.74,1.69,1.94,23,25,33.09,77.16,10.45,53.85,5,95.86-16.54,158-25.29,54.51-90.07,108.39-150.72,113.9-129.67,11.78-177.15-65.11-177.15-65.11C385.49,694,436.72,690.17,467.87,671c31.4-19.43,50.39-33.83,65.81-28.15C548.86,648.43,561,632,550.1,615a78.5,78.5,0,0,0-79.4-34.57c-31.43,5.11-60.23,30-101.41,5.89a85.52,85.52,0,0,1-7.73-5.06c-2.71-1.79,8.83,2.72,6.13.69-8-4.35-22.2-13.84-25.88-17.22-.61-.56,6.22,2.18,5.61,1.62-38.51-31.71-33.7-53.13-32.49-66.57,1-10.75,8-24.52,19.75-30.11,5.69,3.11,9.24,5.48,9.24,5.48s-2.43-5-3.74-7.58c.46-.2.9-.15,1.36-.34,4.66,2.25,15,8.1,20.41,11.67,7.07,5,9.33,9.44,9.33,9.44s1.86-1,.48-5.37c-.5-1.78-2.65-7.45-9.65-13.17h.44A81.2,81.2,0,0,1,374.42,478c2-7.18,5.53-14.68,4.75-28.09-.48-9.43-.26-11.87-1.92-15.51-1.49-3.13.83-4.35,3.42-1.1a32.83,32.83,0,0,0-2.21-7.4v-.24c3.23-11.24,68.25-40.46,73-43.88A67.36,67.36,0,0,0,470.59,361c3.62-5.76,6.34-13.85,7-26.11.36-8.84-3.76-14.73-69.51-21.62-18-1.77-28.53-14.8-34.53-26.82-1.09-2.59-2.21-4.94-3.33-7.28a58,58,0,0,1-2.56-8.43c10.75-30.87,28.81-57,55.37-76.7,1.45-1.32-5.78.34-4.34-1,1.69-1.54,12.71-6,14.79-7,2.54-1.2-10.88-6.9-22.73-5.51-12.07,1.36-14.63,2.8-21.07,5.53,2.67-2.66,11.17-6.15,9.18-6.13-13,2-29.18,9.56-43,18.12a10.73,10.73,0,0,1,.83-4.35c-6.44,2.73-22.26,13.79-26.87,23.14a44.33,44.33,0,0,0,.27-5.4,84.48,84.48,0,0,0-13.19,13.82l-.24.22c-37.36-15-70.23-16-98.05-9.28-6.09-6.11-9.06-1.64-22.91-32.07-.94-1.83.72,1.81,0,0-2.28-5.9,1.39,7.87,0,0-23.28,18.37-53.92,39.19-68.63,53.89-.18.59,17.16-4.9,0,0-6,1.72-5.6,5.28-6.51,37.5-.22,2.44,0,5.18-.22,7.38-11.75,15-19.75,27.64-22.78,34.21-15.19,26.18-31.93,67-48.15,131.55A334.36,334.36,0,0,1,75.2,398.36C61.71,432.63,48.67,486.44,46.07,569.3A483.61,483.61,0,0,1,58.6,518.64,473,473,0,0,0,93.33,719.71c9.33,22.82,24.76,57.46,51,95.4C226.9,902,343.31,956,472.21,956,606.79,956,727.64,897.13,810.67,803.64Z" style="fill: url(#firefox-id-linear-gradient)"/>
+      <path d="M711.1,866.71c162.87-18.86,235-186.7,142.38-190C769.85,674,634,875.61,711.1,866.71Z" style="fill: url(#firefox-id-radial-gradient-3)"/>
+      <path d="M865.21,642.42C977.26,577.21,948,436.34,948,436.34s-43.25,50.24-72.62,130.32C846.4,646,797.84,681.81,865.21,642.42Z" style="fill: url(#firefox-id-radial-gradient-4)"/>
+      <path d="M509.47,950.06C665.7,999.91,800,876.84,717.21,835.74,642,798.68,435.32,926.49,509.47,950.06Z" style="fill: url(#firefox-id-radial-gradient-5)"/>
+      <path d="M876.85,702.23c3.8-5.36,8.94-22.53,13.48-30.21,27.58-44.52,27.78-80,27.78-80.84,16.66-83.22,15.15-117.2,4.9-180-8.25-50.6-44.32-123.09-75.57-158-32.2-36-9.51-24.25-40.69-50.52-27.33-30.29-53.82-60.29-68.25-72.36C634.22,43.09,636.57,24.58,638.58,21.42c-.34.37-.84.92-1.47,1.64C635.87,18.14,635,14,635,14s-57,57-69,152c-7.83,62,15.38,126.68,49,168a381.37,381.37,0,0,0,59,58h0c25.4,36.48,39.38,81.49,39.38,129.91,0,121.24-98.34,219.53-219.65,219.53a220.45,220.45,0,0,1-49.13-5.52c-57.24-10.92-90.3-39.8-106.78-59.41-9.45-11.23-13.46-19.42-13.46-19.42,51.28,18.37,108,14.53,142.47-4.52,34.75-19.26,55.77-33.55,72.84-27.92,16.82,5.61,30.21-10.67,18.2-27.54-11.77-16.85-42.4-41-87.88-34.29-34.79,5.07-66.66,29.76-112.24,5.84a96.32,96.32,0,0,1-8.55-5c-3-1.77,9.77,2.69,6.79.68-8.87-4.32-24.57-13.73-28.64-17.07-.68-.56,6.88,2.16,6.2,1.6-42.62-31.45-37.3-52.69-36-66,1.07-10.66,8.81-24.32,21.86-29.86,6.3,3.08,10.23,5.43,10.23,5.43s-2.69-4.92-4.14-7.51c.51-.19,1-.15,1.5-.34,5.16,2.23,16.58,8,22.59,11.57,7.83,5,10.32,9.36,10.32,9.36s2.06-1,.54-5.33c-.56-1.77-2.93-7.39-10.68-13.07h.48a90.85,90.85,0,0,1,13.13,8.17c2.19-7.12,6.12-14.56,5.25-27.86-.53-9.35-.28-11.78-2.12-15.39-1.65-3.1.92-4.31,3.78-1.09a30,30,0,0,0-2.44-7.34v-.24c3.57-11.14,75.53-40.12,80.77-43.51a70.31,70.31,0,0,0,21.17-20.63c4-5.72,7-13.73,7.75-25.89.25-5.48-1.44-9.82-20.5-14-11.44-2.49-29.14-4.91-56.43-7.47-19.9-1.76-31.58-14.68-38.21-26.6-1.21-2.57-2.45-4.9-3.68-7.22a53.11,53.11,0,0,1-2.83-8.36,158.47,158.47,0,0,1,61.28-76.06c1.6-1.31-6.4.33-4.8-1,1.87-1.52,14.06-5.93,16.37-6.92,2.81-1.19-12-6.84-25.16-5.47-13.36,1.35-16.19,2.78-23.32,5.49,3-2.64,12.37-6.1,10.16-6.08-14.4,2-32.3,9.48-47.6,18a9.68,9.68,0,0,1,.92-4.31c-7.13,2.71-24.64,13.67-29.73,23a39.49,39.49,0,0,0,.29-5.35,88.68,88.68,0,0,0-14.6,13.7l-.27.22C258.14,196,221.75,195,191,201.72c-6.74-6.06-17.57-15.23-32.89-45.4-1-1.82-1.6,3.75-2.4,2-6-13.81-9.55-36.44-9-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.87-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.37,12.62-1.38,4-3.32,6.27-4.56,11.29l-.29.46c-.1-1.48.37-6.08,0-5.14A236.1,236.1,0,0,0,95.34,186c-5.49,18-11.88,42.61-12.89,74.57-.24,2.42,0,5.14-.25,7.32-13,14.83-21.86,27.39-25.2,33.91-16.81,26-35.33,66.44-53.29,130.46a319.14,319.14,0,0,1,28.54-50C17.32,416.25,2.89,469.62,0,551.8a438.52,438.52,0,0,1,13.87-50.24C11.29,556.36,17.68,624.3,52.32,701c20.57,45,67.92,136.6,183.62,208h0s39.36,29.3,107,51.26c5,1.81,10.06,3.6,15.23,5.33q-2.43-1-4.71-2A484.88,484.88,0,0,0,492.27,984c175.18.15,226.85-70.2,226.85-70.2l-.51.38q3.71-3.49,7.14-7.26c-27.64,26.08-90.75,27.84-114.3,26,40.22-11.81,66.69-21.81,118.17-41.52q9-3.36,18.48-7.64l2-.94c1.25-.58,2.49-1.13,3.75-1.74a349.21,349.21,0,0,0,70.26-44c51.7-41.3,63-81.56,68.83-108.1-.82,2.54-3.37,8.47-5.17,12.32-13.31,28.48-42.84,46-74.91,61a689,689,0,0,0,42.38-62.44C865.77,729.39,869,713.15,876.85,702.23Z" style="fill: url(#firefox-id-radial-gradient-6)"/>
+      <path d="M813.92,801c21.08-23.24,40-49.82,54.35-80,36.9-77.58,94-206.58,49-341.31C881.77,273.22,833,215,771.11,158.12,670.56,65.76,642.48,24.52,642.48,0c0,0-116.09,129.41-65.74,264.38s153.46,130,221.68,270.87c80.27,165.74-65,346.61-185,397.24,7.35-1.63,267-60.38,280.61-208.88C893.68,726.34,887.83,767.41,813.92,801Z" style="fill: url(#firefox-id-radial-gradient-7)"/>
+      <path d="M477.59,319.37c.39-8.77-4.16-14.66-76.68-21.46-29.84-2.76-41.26-30.33-44.75-41.94-10.61,27.56-15,56.49-12.64,91.48,1.61,22.92,17,47.52,24.37,62,0,0,1.64-2.13,2.39-2.91,13.86-14.43,71.94-36.42,77.39-39.54C453.69,363.16,476.58,346.44,477.59,319.37Z" style="fill: url(#firefox-id-linear-gradient-2)"/>
+      <path d="M158.31,156.47c-1-1.82-1.6,3.75-2.4,2-6-13.81-9.58-36.2-8.72-52,0,0-12.32,5.61-22.51,29.06-1.89,4.21-3.11,6.54-4.32,8.86-.56.68,1.27-7.7,1-7.24-1.77,3-6.36,7.19-8.35,12.38-1.65,4.24-3.35,6.52-4.61,11.77-.39,1.43.39-6.32.05-5.38C84.72,201.68,80.19,271,82.69,268,133.17,214.14,191,201.36,191,201.36c-6.15-4.53-19.53-17.63-32.7-44.89Z" style="fill: url(#firefox-id-linear-gradient-3)"/>
+      <path d="M349.84,720.1c-69.72-29.77-149-71.75-146-167.14C207.92,427.35,321,452.18,321,452.18c-4.27,1-15.68,9.16-19.72,17.82-4.27,10.83-12.07,35.28,11.55,60.9,37.09,40.19-76.2,95.36,98.66,199.57,4.41,2.4-41-1.43-61.64-10.36Z" style="fill: url(#firefox-id-linear-gradient-4)"/>
+      <path d="M325.07,657.5c49.44,17.21,107,14.19,141.52-4.86,23.09-12.85,52.7-33.43,70.92-28.35-15.78-6.24-27.73-9.15-42.1-9.86-2.45,0-5.38,0-8-.32a136.24,136.24,0,0,0-15.76.86c-8.9.82-18.77,6.43-27.74,5.53-.48,0,8.7-3.77,8-3.61-4.75,1-9.92,1.21-15.37,1.88-3.47.39-6.45.82-9.89,1-103,8.73-190-55.81-190-55.81-7.41,25,33.17,74.3,88.52,93.57Z" style="fill: url(#firefox-id-linear-gradient-5)"/>
+      <path d="M813.74,801.65c104.16-102.27,156.86-226.58,134.58-366,0,0,8.9,71.5-24.85,144.63,16.21-71.39,18.1-160.11-25-252C841,205.64,746.45,141.11,710.35,114.19,655.66,73.4,633,31.87,632.57,23.3c-16.34,33.48-65.77,148.2-5.31,247,56.64,92.56,145.86,120,208.33,205C950.67,631.67,813.74,801.65,813.74,801.65Z" style="fill: url(#firefox-id-linear-gradient-6)"/>
+      <path d="M798.81,535.55C762.41,460.35,717,427.55,674,392c5,7,6.23,9.47,9,14,37.83,40.32,93.61,138.66,53.11,262.11C659.88,900.48,355,791.06,323,760.32,335.93,894.81,561,959.16,707.6,872,791,793,858.47,658.79,798.81,535.55Z" style="fill: url(#firefox-id-linear-gradient-7)"/>
+    </g>
+  </g>
+</svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Firefox</div>
+              <div class="ua-platform">Linux</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="brave_linux">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2770 2770" width="20" height="20"><linearGradient id="brave-id-a" y1="51%" y2="51%"><stop offset=".4" stop-color="#f50"/><stop offset=".6" stop-color="#ff2000"/></linearGradient><linearGradient id="brave-id-b" x1="2%" y1="51%" y2="51%"><stop offset="0" stop-color="#ff452a"/><stop offset="1" stop-color="#ff2000"/></linearGradient><path fill="url(#brave-id-a)" d="M2395 723l60-147-170-176c-92-92-288-38-288-38l-222-252H992L769 363s-196-53-288 37L311 575l60 147-75 218 250 953c52 204 87 283 234 387l457 310c44 27 98 74 147 74s103-47 147-74l457-310c147-104 182-183 234-387l250-953z"/><path fill="#fff" d="M1935 524s287 347 287 420c0 75-36 94-72 133l-215 230c-20 20-63 54-38 113 25 60 60 134 20 210-40 77-110 128-155 120a820 820 0 01-190-90c-38-25-160-126-160-165s126-110 150-124c23-16 130-78 132-102s2-30-30-90-88-140-80-192c10-52 100-80 167-105l207-78c16-8 12-15-36-20-48-4-183-22-244-5s-163 43-173 57c-8 14-16 14-7 62l58 315c4 40 12 67-30 77-44 10-117 27-142 27s-99-17-142-27-35-37-30-77c4-40 48-268 57-315 10-48 1-48-7-62-10-14-113-40-174-57-60-17-196 1-244 6-48 4-52 10-36 20l207 77c66 25 158 53 167 105 10 53-47 132-80 192s-32 66-30 90 110 86 132 102c24 15 150 85 150 124s-119 140-159 165a820 820 0 01-190 90c-45 8-115-43-156-120-40-76-4-150 20-210 25-60-17-92-38-113l-215-230c-35-37-71-57-71-131s287-420 287-420l273 44c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47zm-215 1328c18 10 7 32-10 44l-254 198c-20 20-52 50-73 50s-52-30-73-50a13200 13200 0 00-255-198c-16-12-27-33-10-44l150-80a870 870 0 01188-73c15 0 110 34 187 73l150 80z"/><path fill="url(#brave-id-b)" d="M1999 363l-224-253H992L769 363s-196-53-288 37c0 0 260-23 350 123l276 47c32 0 103-27 168-50 65-20 110-22 110-22s44 0 110 22 136 50 168 50c33 0 275-47 275-47 90-146 350-123 350-123-92-92-288-38-288-38"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Brave</div>
+              <div class="ua-platform">Linux</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="opera_linux">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1090 1090" width="20" height="20"><linearGradient id="opera-id-a" x1="461" x2="461" y1="59" y2="1033" gradientUnits="userSpaceOnUse"><stop offset=".6" stop-color="#ff1b2d"/><stop offset="1" stop-color="#a70014"/></linearGradient><linearGradient id="opera-id-b" x1="714" x2="714" y1="116" y2="978" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#9c0000"/><stop offset=".7" stop-color="#ff4b4b"/></linearGradient><path fill="url(#opera-id-a)" d="M545 42.5a502.5 502.5 0 10334.9 877.1 362.4 362.4 0 01-201.4 61.5c-119.7 0-226.8-59.4-299-153-55.6-65.6-91.5-162.5-94-271.3V533c2.5-108.8 38.4-205.8 94-271.3 72-93.6 179.3-153 299-153 73.6 0 142.5 22.5 201.4 61.6a500.8 500.8 0 00-333-127.9h-2z"/><path fill="url(#opera-id-b)" d="M379.6 261.8c46-54.4 105.7-87.3 170.7-87.3 146.3 0 265 166 265 370.4 0 204.6-118.6 370.4-265 370.4-65 0-124.6-32.8-170.7-87.2 72 93.6 179.2 153 299 153A363 363 0 00880 919.6 501 501 0 001047.5 545a501.1 501.1 0 00-167.6-374.6 362.4 362.4 0 00-201.4-61.5c-119.7 0-226.8 59.4-299 153"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Opera</div>
+              <div class="ua-platform">Linux</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="edge_linux">
+            <div class="ua-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 27600 27600" width="20" height="20"><linearGradient id="edge-id-A" gradientUnits="userSpaceOnUse"/><linearGradient id="edge-id-B" x1="6870" x2="24704" y1="18705" y2="18705" xlink:href="#edge-id-A"><stop offset="0" stop-color="#0c59a4"/><stop offset="1" stop-color="#114a8b"/></linearGradient><linearGradient id="edge-id-C" x1="16272" x2="5133" y1="10968" y2="23102" xlink:href="#edge-id-A"><stop offset="0" stop-color="#1b9de2"/><stop offset=".16" stop-color="#1595df"/><stop offset=".67" stop-color="#0680d7"/><stop offset="1" stop-color="#0078d4"/></linearGradient><radialGradient id="edge-id-D" cx="16720" cy="18747" r="9538" xlink:href="#edge-id-A"><stop offset=".72" stop-opacity="0"/><stop offset=".95" stop-opacity=".53"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-E" cx="7130" cy="19866" r="14324" gradientTransform="matrix(.14843 -.98892 .79688 .1196 -8759 25542)" xlink:href="#edge-id-A"><stop offset=".76" stop-opacity="0"/><stop offset=".95" stop-opacity=".5"/><stop offset="1"/></radialGradient><radialGradient id="edge-id-F" cx="2523" cy="4680" r="20243" gradientTransform="matrix(-.03715 .99931 -2.12836 -.07913 13579 3530)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#35c1f1"/><stop offset=".11" stop-color="#34c1ed"/><stop offset=".23" stop-color="#2fc2df"/><stop offset=".31" stop-color="#2bc3d2"/><stop offset=".67" stop-color="#36c752"/></radialGradient><radialGradient id="edge-id-G" cx="24247" cy="7758" r="9734" gradientTransform="matrix(.28109 .95968 -.78353 .22949 24510 -16292)" xlink:href="#edge-id-A"><stop offset="0" stop-color="#66eb6e"/><stop offset="1" stop-color="#66eb6e" stop-opacity="0"/></radialGradient><path id="edge-id-H" d="M24105 20053a9345 9345 0 01-1053 472 10202 10202 0 01-3590 646c-4732 0-8855-3255-8855-7432 0-1175 680-2193 1643-2729-4280 180-5380 4640-5380 7253 0 7387 6810 8137 8276 8137 791 0 1984-230 2704-456l130-44a12834 12834 0 006660-5282c220-350-168-757-535-565z"/><path id="edge-id-I" d="M11571 25141a7913 7913 0 01-2273-2137 8145 8145 0 01-1514-4740 8093 8093 0 013093-6395 8082 8082 0 011373-859c312-148 846-414 1554-404a3236 3236 0 012569 1297 3184 3184 0 01636 1866c0-21 2446-7960-8005-7960-4390 0-8004 4166-8004 7820 0 2319 538 4170 1212 5604a12833 12833 0 007684 6757 12795 12795 0 003908 610c1414 0 2774-233 4045-656a7575 7575 0 01-6278-803z"/><path id="edge-id-J" d="M16231 15886c-80 105-330 250-330 566 0 260 170 512 472 723 1438 1003 4149 868 4156 868a5954 5954 0 003027-839 6147 6147 0 001133-850 6180 6180 0 001910-4437c26-2242-796-3732-1133-4392-2120-4141-6694-6525-11668-6525-7011 0-12703 5635-12798 12620 47-3654 3679-6605 7996-6605 350 0 2346 34 4200 1007 1634 858 2490 1894 3086 2921 618 1067 728 2415 728 2952s-271 1333-780 1990z"/><use fill="url(#edge-id-B)" xlink:href="#edge-id-H"/><use fill="url(#edge-id-D)" opacity=".35" xlink:href="#edge-id-H"/><use fill="url(#edge-id-C)" xlink:href="#edge-id-I"/><use fill="url(#edge-id-E)" opacity=".4" xlink:href="#edge-id-I"/><use fill="url(#edge-id-F)" xlink:href="#edge-id-J"/><use fill="url(#edge-id-G)" xlink:href="#edge-id-J"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Edge</div>
+              <div class="ua-platform">Linux</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Devices Section -->
+      <div class="category-section">
+        <div class="category-title">Mobile Devices</div>
+        <div class="ua-grid">
+          <div class="ua-item" data-ua="safari_ios">
+            <div class="ua-icon">
+              <svg fill="#000000" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><title>Apple</title><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Safari (iOS)</div>
+              <div class="ua-platform">iPhone</div>
+            </div>
+          </div>
+          <div class="ua-item" data-ua="android_chrome">
+            <div class="ua-icon">
+              <svg fill="#3DDC84" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><title>Android</title><path d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></svg>
+            </div>
+            <div class="ua-info">
+              <div class="ua-name">Chrome (Mobile)</div>
+              <div class="ua-platform">Android</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </main>
+    <div id="toast" class="toast-message">Copied to Clipboard!</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
