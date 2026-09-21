@@ -74,8 +74,8 @@ body {
   gap: 8px;
   background-color: #f8fafc;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 8px 10px;
+  border-radius: 50px;
+  padding: 8px 16px;
   cursor: pointer;
   transition: all 0.2s ease;
 }

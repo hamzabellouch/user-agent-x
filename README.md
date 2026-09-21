@@ -1,9 +1,11 @@
-# User-Agent X
+# User-Agent X Beta
 
-A modern, lightweight, and powerful browser extension to protect your online privacy by spoofing your User-Agent string and hiding or customizing User-Agent Client Hints.
+The experimental beta release of **User-Agent X**, a modern and lightweight browser extension to protect your online privacy by spoofing your User-Agent string and customizing Client Hints. 
+
+*This version contains experimental features including modern capsule-styled interactive options.*
 
 <div align="center">
-  <img src="https://github.com/hamzabellouch/user-agent-x/blob/main/user-agent.png" width="800"/>
+  <img src="https://github.com/hamzabellouch/user-agent-x/blob/beta/user-agent.png" width="800"/>
 </div>
 
 Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based)** and **Mozilla Firefox**.
@@ -12,11 +14,11 @@ Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based
 
 ### <a name="Features"></a> ⭐ Features
 
-- **Preconfigured Profiles:** Instantly switch between popular browsers (Chrome, Firefox, Safari, Edge, Opera, Brave) and platforms (Windows, macOS, Linux, Android, iOS).
+- **Experimental Capsule Design:** Fully rounded capsule-shaped buttons (`border-radius: 50px`) for a more premium and fluid user experience.
+- **Preconfigured Profiles:** Switch between popular browsers (Chrome, Firefox, Safari, Edge, Opera, Brave) and platforms (Windows, macOS, Linux, Android, iOS).
 - **Custom User-Agent Support:** Manually input and apply any custom User-Agent string.
-- **Client Hint Spoofing & Blocking:** Automatically sets matching `sec-ch-ua` headers for Chromium profiles, or strips them entirely for non-Chromium profiles (Firefox/Safari) to prevent fingerprinting leaks.
+- **Client Hint Spoofing & Blocking:** Automatically sets matching `sec-ch-ua` headers for Chromium profiles, or strips them entirely for non-Chromium profiles (Firefox/Safari).
 - **Dynamic Rule Updates:** Utilizes high-performance Manifest V3 APIs (`declarativeNetRequest`) for seamless header modification.
-- **Premium UI:** Clean, responsive, and modern popup interface using the Inter typeface.
 - **Privacy-First:** Processed entirely locally. No telemetry, no tracking, and no external requests.
 
 
@@ -28,8 +30,8 @@ Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based
 │   ├── icons/         # Extension icon files
 │   ├── background.js  # Service worker managing network rules
 │   ├── content.js     # Client Hints override injection script
-│   ├── manifest.json  # Chromium Manifest V3 configuration
-│   ├── popup.css      # UI styling
+│   ├── manifest.json  # Chromium Manifest V3 configuration (v1.5.0)
+│   ├── popup.css      # Capsule UI styling
 │   ├── popup.js       # UI interaction logic
 │   └── popup.html     # Popup user interface
 │
@@ -37,8 +39,8 @@ Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based
 │   ├── icons/         # Extension icon files
 │   ├── background.js  # Background script managing network rules
 │   ├── content.js     # Client Hints override injection script
-│   ├── manifest.json  # Firefox Manifest V3 configuration (with Gecko ID)
-│   ├── popup.css      # UI styling
+│   ├── manifest.json  # Firefox Manifest V3 configuration (v1.5.0, Gecko ID)
+│   ├── popup.css      # Capsule UI styling
 │   ├── popup.js       # UI interaction logic
 │   └── popup.html     # Popup user interface
 │
@@ -80,7 +82,7 @@ Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based
 
 
 > [!WARNING]
-> There is always a possibility of website breakage or detection when using advanced spoofing, so we assume no responsibility for any inaccuracies or issues.
+> This is a beta/experimental branch. There is always a possibility of website breakage or detection when using advanced spoofing, so we assume no responsibility for any inaccuracies or issues.
 
 
 ### <a name="Copyright©2026"></a> Copyright © 2026
