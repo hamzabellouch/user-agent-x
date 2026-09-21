@@ -5,7 +5,7 @@ The experimental beta release of **User-Agent X**, a modern and lightweight brow
 *This version contains experimental features including modern capsule-styled interactive options.*
 
 <div align="center">
-  <img src="https://github.com/hamzabellouch/user-agent-x/blob/beta/user-agent.png" width="800"/>
+  <img src="https://github.com/hamzabellouch/user-agent-x/blob/main/user-agent.png" width="800"/>
 </div>
 
 Compatible with all major browsers: **Chrome, Brave, Edge, Opera (Chromium-based)** and **Mozilla Firefox**.
