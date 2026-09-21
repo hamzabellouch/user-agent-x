@@ -1,4 +1,4 @@
-# User-Agent X Beta
+# User-Agent X
 
 The experimental beta release of **User-Agent X**, a modern and lightweight browser extension to protect your online privacy by spoofing your User-Agent string and customizing Client Hints. 
 
@@ -91,4 +91,4 @@ Thank you for engaging with us. For inquiries or collaboration, please contact:
 hamzabellouchcontact@gmail.com
 
 Stay connected and follow us on:  
-[Facebook](https://facebook.com/hamzabellouch1) | [Instagram](https://instagram.com/hamzabellouch0) | [Twitter](https://twitter.com/hamzabellouch0) | [Telegram](https://t.me/hammzabellouch) | [LinkedIn](https://www.linkedin.com/in/hamzabellouch)
+[WhatsApp](https://whatsapp.com/channel/0029Vb7MArw0LKZMpjjqOk2P) | [Facebook](https://facebook.com/hamzabellouch1) | [Instagram](https://instagram.com/hamzabellouch0) | [Twitter](https://twitter.com/hamzabellouch0) | [Telegram](https://t.me/hammzabellouch) | [LinkedIn](https://www.linkedin.com/in/hamzabellouch)
