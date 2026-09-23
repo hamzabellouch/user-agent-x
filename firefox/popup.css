@@ -97,6 +97,13 @@ body {
   flex-shrink: 0;
 }
 
+.ua-icon img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  display: block;
+}
+
 .ua-info {
   display: flex;
   flex-direction: column;

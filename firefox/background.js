@@ -1,140 +1,169 @@
-// Dictionary of preconfigured User Agents and their metadata
-const USER_AGENTS = {
-  chrome_win: {
-    name: "Chrome (Windows)",
-    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Chrome",
-    platform: "Windows",
-    isMobile: false
+// Dictionary of Operating Systems and Browsers configurations
+const OS_CONFIGS = {
+  windows: {
+    name: "Windows",
+    platform: "Win32",
+    chPlatform: "Windows",
+    chPlatformVersion: "15.0.0",
+    isMobile: false,
+    osToken: "Windows NT 10.0; Win64; x64"
   },
-  chrome_mac: {
-    name: "Chrome (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Chrome",
-    platform: "macOS",
-    isMobile: false
+  macos: {
+    name: "macOS",
+    platform: "MacIntel",
+    chPlatform: "macOS",
+    chPlatformVersion: "14.5.0",
+    isMobile: false,
+    osToken: "Macintosh; Intel Mac OS X 10_15_7"
   },
-  firefox_win: {
-    name: "Firefox (Windows)",
-    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
-    isChromium: false
+  linux: {
+    name: "Linux",
+    platform: "Linux x86_64",
+    chPlatform: "Linux",
+    chPlatformVersion: "6.8.0",
+    isMobile: false,
+    osToken: "X11; Linux x86_64"
   },
-  firefox_mac: {
-    name: "Firefox (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0",
-    isChromium: false
+  ios: {
+    name: "iOS",
+    platform: "iPhone",
+    chPlatform: "iOS",
+    chPlatformVersion: "17.5.1",
+    isMobile: true,
+    osToken: "iPhone; CPU iPhone OS 17_5 like Mac OS X"
   },
-  safari_mac: {
-    name: "Safari (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15",
-    isChromium: false
-  },
-  safari_ios: {
-    name: "Safari (iOS / iPhone)",
-    ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1",
-    isChromium: false
-  },
-  edge_win: {
-    name: "Edge (Windows)",
-    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
-    isChromium: true,
-    brand: "Edge",
-    platform: "Windows",
-    isMobile: false
-  },
-  opera_win: {
-    name: "Opera (Windows)",
-    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/111.0.0.0",
-    isChromium: true,
-    brand: "Opera",
-    platform: "Windows",
-    isMobile: false
-  },
-  brave_win: {
-    name: "Brave (Windows)",
-    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Brave",
-    platform: "Windows",
-    isMobile: false
-  },
-  android_chrome: {
-    name: "Android (Chrome Mobile)",
-    ua: "Mozilla/5.0 (Linux; Android 14; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36",
-    isChromium: true,
-    brand: "Chrome",
-    platform: "Android",
-    isMobile: true
-  },
-  edge_mac: {
-    name: "Edge (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
-    isChromium: true,
-    brand: "Edge",
-    platform: "macOS",
-    isMobile: false
-  },
-  chrome_linux: {
-    name: "Chrome (Linux)",
-    ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Chrome",
-    platform: "Linux",
-    isMobile: false
-  },
-  firefox_linux: {
-    name: "Firefox (Linux)",
-    ua: "Mozilla/5.0 (X11; Linux x86_64; rv:127.0) Gecko/20100101 Firefox/127.0",
-    isChromium: false
-  },
-  edge_linux: {
-    name: "Edge (Linux)",
-    ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0",
-    isChromium: true,
-    brand: "Edge",
-    platform: "Linux",
-    isMobile: false
-  },
-  brave_linux: {
-    name: "Brave (Linux)",
-    ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Brave",
-    platform: "Linux",
-    isMobile: false
-  },
-  brave_mac: {
-    name: "Brave (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    isChromium: true,
-    brand: "Brave",
-    platform: "macOS",
-    isMobile: false
-  },
-  opera_mac: {
-    name: "Opera (macOS)",
-    ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/111.0.0.0",
-    isChromium: true,
-    brand: "Opera",
-    platform: "macOS",
-    isMobile: false
-  },
-  opera_linux: {
-    name: "Opera (Linux)",
-    ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/111.0.0.0",
-    isChromium: true,
-    brand: "Opera",
-    platform: "Linux",
-    isMobile: false
-  },
-  ie_11: {
-    name: "Internet Explorer 11",
-    ua: "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko",
-    isChromium: false
+  android: {
+    name: "Android",
+    platform: "Linux armv8l",
+    chPlatform: "Android",
+    chPlatformVersion: "14.0.0",
+    isMobile: true,
+    osToken: "Linux; Android 14; K"
   }
 };
+
+const BROWSER_NAMES = {
+  chrome: "Chrome",
+  firefox: "Firefox",
+  brave: "Brave",
+  opera: "Opera",
+  edge: "Edge",
+  safari: "Safari",
+  ie_11: "Internet Explorer 11"
+};
+
+function resolveUserAgent(osKey, browserKey) {
+  const os = OS_CONFIGS[osKey] || OS_CONFIGS.windows;
+  const browser = browserKey || "chrome";
+
+  let ua = "";
+  let isChromium = false;
+  let brand = "";
+  let isMobile = os.isMobile;
+  let platform = os.platform;
+  let chPlatform = os.chPlatform;
+
+  switch (browser) {
+    case "chrome":
+      isChromium = true;
+      brand = "Chrome";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/126.0.6478.108 Mobile/15E148 Safari/604.1`;
+      } else if (osKey === "android") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36`;
+      }
+      break;
+
+    case "firefox":
+      isChromium = false;
+      brand = "Firefox";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/127.0 Mobile/15E148 Safari/605.1.15`;
+      } else if (osKey === "android") {
+        ua = `Mozilla/5.0 (Android 14; Mobile; rv:127.0) Gecko/127.0 Firefox/127.0`;
+      } else if (osKey === "macos") {
+        ua = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:127.0) Gecko/20100101 Firefox/127.0`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}; rv:127.0) Gecko/20100101 Firefox/127.0`;
+      }
+      break;
+
+    case "brave":
+      isChromium = true;
+      brand = "Brave";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1`;
+      } else if (osKey === "android") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36`;
+      }
+      break;
+
+    case "opera":
+      isChromium = true;
+      brand = "Opera";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) OPT/3.5.0 Mobile/15E148 Safari/604.1`;
+      } else if (osKey === "android") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36 OPR/82.0.0.0`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 OPR/111.0.0.0`;
+      }
+      break;
+
+    case "edge":
+      isChromium = true;
+      brand = "Edge";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) EdgiOS/126.0.2592.82 Mobile/15E148 Safari/604.1`;
+      } else if (osKey === "android") {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36 EdgA/126.0.0.0`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0`;
+      }
+      break;
+
+    case "safari":
+      isChromium = false;
+      brand = "Safari";
+      if (osKey === "ios") {
+        ua = `Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1`;
+      } else if (osKey === "macos") {
+        ua = `Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15`;
+      } else {
+        ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15`;
+      }
+      break;
+
+    case "ie_11":
+      isChromium = false;
+      brand = "IE";
+      ua = `Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko`;
+      platform = "Win32";
+      chPlatform = "Windows";
+      break;
+
+    default:
+      isChromium = true;
+      brand = "Chrome";
+      ua = `Mozilla/5.0 (${os.osToken}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36`;
+      break;
+  }
+
+  return {
+    ua,
+    name: `${BROWSER_NAMES[browser] || browser} (${os.name})`,
+    isChromium,
+    brand,
+    platform,
+    chPlatform,
+    chPlatformVersion: os.chPlatformVersion,
+    isMobile
+  };
+}
 
 const RULE_ID = 1;
 
@@ -143,7 +172,9 @@ async function updateNetRules() {
   try {
     const data = await chrome.storage.local.get({
       enabled: false,
-      selectedUA: "chrome_win",
+      selectedOS: "windows",
+      selectedBrowser: "chrome",
+      selectedUA: "default",
       customUAValue: ""
     });
 
@@ -164,7 +195,7 @@ async function updateNetRules() {
 
     if (data.selectedUA === "custom") {
       activeUA = data.customUAValue || "Mozilla/5.0";
-      // For custom UAs, we guess Chromium status or simply strip Client Hints to be safe
+      // For custom UAs, guess Chromium status or strip Client Hints
       isChromium = activeUA.includes("Chrome") && !activeUA.includes("Firefox") && !activeUA.includes("Safari");
       if (isChromium) {
         brand = activeUA.includes("Edg/") ? "Edge" : (activeUA.includes("OPR/") ? "Opera" : "Chrome");
@@ -172,20 +203,27 @@ async function updateNetRules() {
         isMobile = activeUA.includes("Mobile");
       }
     } else {
-      const config = USER_AGENTS[data.selectedUA];
-      if (config) {
-        activeUA = config.ua;
-        isChromium = config.isChromium;
-        brand = config.brand || "";
-        platform = config.platform || "";
-        isMobile = config.isMobile || false;
-      } else {
-        // Fallback
-        activeUA = USER_AGENTS.chrome_win.ua;
-        isChromium = true;
-        brand = "Chrome";
-        platform = "Windows";
+      let osKey = data.selectedOS;
+      let browserKey = data.selectedBrowser;
+
+      // Handle legacy key formats if needed
+      if (!osKey || !browserKey) {
+        if (data.selectedUA && data.selectedUA.includes("_")) {
+          const parts = data.selectedUA.split("_");
+          browserKey = parts[0];
+          osKey = parts[1] === "win" ? "windows" : (parts[1] === "mac" ? "macos" : parts[1]);
+        } else {
+          osKey = "windows";
+          browserKey = "chrome";
+        }
       }
+
+      const config = resolveUserAgent(osKey, browserKey);
+      activeUA = config.ua;
+      isChromium = config.isChromium;
+      brand = config.brand;
+      platform = config.chPlatform;
+      isMobile = config.isMobile;
     }
 
     const requestHeaders = [
@@ -265,18 +303,19 @@ async function updateNetRules() {
 
 // Listen to storage changes to update rules dynamically
 chrome.storage.onChanged.addListener((changes, area) => {
-  if (area === "local" && (changes.enabled || changes.selectedUA || changes.customUAValue)) {
+  if (area === "local" && (changes.enabled || changes.selectedOS || changes.selectedBrowser || changes.selectedUA || changes.customUAValue)) {
     updateNetRules();
   }
 });
 
 // Run rules update on installation and startup
 chrome.runtime.onInstalled.addListener(() => {
-  // Initialize default storage values if not set
-  chrome.storage.local.get(["enabled", "selectedUA", "customUAValue"], (data) => {
+  chrome.storage.local.get(["enabled", "selectedOS", "selectedBrowser", "selectedUA", "customUAValue"], (data) => {
     const updates = {};
     if (data.enabled === undefined) updates.enabled = false;
-    if (data.selectedUA === undefined) updates.selectedUA = "chrome_win";
+    if (data.selectedOS === undefined) updates.selectedOS = "windows";
+    if (data.selectedBrowser === undefined) updates.selectedBrowser = "chrome";
+    if (data.selectedUA === undefined) updates.selectedUA = "default";
     if (data.customUAValue === undefined) updates.customUAValue = "";
     
     if (Object.keys(updates).length > 0) {
